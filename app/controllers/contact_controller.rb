@@ -4,8 +4,8 @@ class ContactController < ApplicationController
   end
 
   def create
-    flash[:notice] = 'hey'
     ContactMailer.contact(params).deliver_now
+    flash[:notice] = 'Email envoyé!'
     redirect_to contact_path
   end
 end
