@@ -17,8 +17,12 @@ Avo.configure do |config|
 
   ## == Authentication ==
   # config.current_user_method = {}
-  # config.authenticate_with do
-  # end
+  config.authenticate_with do
+    unless current_user && current_user.admin?
+      flash[:alert] = 'You arent Kami, only Kami can administrate!'
+      redirect_to '/'
+    end
+  end
 
   ## == Authorization ==
   # config.authorization_methods = {
