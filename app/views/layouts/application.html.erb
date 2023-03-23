@@ -15,13 +15,24 @@
   <p class="notice bg-green-300"><%= notice %></p>
   <p class="alert bg-red-300"><%= alert %></p>
 
-  <% if user_signed_in? %>
-    <h1>Hello, <%= current_user.firstname %></h1>
+  <nav class="[&>a]:underline grid grid-cols-5">
+    <% if user_signed_in? %>
+      <h1>Hello, <%= current_user.firstname %></h1>
 
-    <%= link_to "Profil", edit_user_registration_path %>
 
-    <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
-  <% end %>
+      <%= link_to "Profil", edit_user_registration_path %>
+      <%= link_to "Reservations", reservations_path %>
+      <% if current_user.admin? %>
+        <%= link_to "Admin", '/admin' %>
+      <% end %>
+
+      <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Connexion", new_user_session_path %>
+    <% end %>
+  </nav>
+
+
   <main class="container mx-auto mt-28 px-5 flex flex-col">
       <%= yield %>
     </main>
