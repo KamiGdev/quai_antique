@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_reservation, only: %i[ show edit update destroy ]
 
   # GET /reservations or /reservations.json
@@ -14,6 +13,12 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    if user_signed_in?
+      @reservation.email = current_user.email
+      @reservation.lastname = current_user.lastname
+      @reservation.people_number = current_user.people_number
+      @reservation.allergy = current_user.allergy
+    end
   end
 
   # GET /reservations/1/edit
@@ -66,6 +71,6 @@ class ReservationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :phone_number, :date, :time, :people_number, :allergy)
+      params.require(:reservation).permit(:lastname, :email, :phone_number, :date, :time, :people_number, :allergy)
     end
 end

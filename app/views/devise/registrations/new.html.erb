@@ -18,6 +18,16 @@
   </div>
 
   <div class="field">
+    <%= f.label 'People number by default' %><br />
+    <%= f.text_field :people_number, autofocus: true, autocomplete: "number", type: 'number' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :allergy %><br />
+    <%= f.text_field :allergy, autofocus: true, autocomplete: "text" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
