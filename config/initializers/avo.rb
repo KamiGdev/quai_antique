@@ -18,8 +18,8 @@ Avo.configure do |config|
   ## == Authentication ==
   # config.current_user_method = {}
   config.authenticate_with do
-    unless current_user && current_user.admin?
-      flash[:alert] = 'You arent Kami, only Kami can administrate!'
+    unless current_user && current_user.admin? #mdp: jefjef
+      flash[:alert] = "You aren't Kami, only Kami can administrate!"
       redirect_to '/'
     end
   end
