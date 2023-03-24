@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
+  before_action :set_available_slots, only: %i[ new create ]
 
   # GET /reservations or /reservations.json
   def index
@@ -28,9 +29,12 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    slot = Slot.new date: @date, time: params[:slot]
 
     respond_to do |format|
       if @reservation.save
+        slot.reservation_id = @reservation.id
+        slot.save!
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
@@ -71,6 +75,20 @@ class ReservationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:lastname, :email, :phone_number, :date, :time, :people_number, :allergy)
+      params.require(:reservation).permit(:lastname, :email, :phone_number, :date, :people_number, :allergy)
+    end
+
+    def set_available_slots
+      @date = Date.today # TODO: selectionner une date
+      @slots = Slot.all
+
+      taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") }
+      @available_slots = []
+      (10..15).step(0.25).each do |hour|
+        hour_s =  format '%2d', hour.floor # piocher le 10 du 10.25
+        minute_s = (hour.modulo(1) * 60).to_i.to_s.rjust(2, '0') # transformer le 0.25 en 15min (le quart) et garder que le 25
+        slot = "#{hour_s}:#{minute_s}"
+        @available_slots << slot unless taken_slots.include? slot
+      end
     end
 end
