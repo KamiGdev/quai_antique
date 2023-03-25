@@ -1,4 +1,5 @@
 class SlotResource < Avo::BaseResource
+  self.visible_on_sidebar = false
   self.title = :id
   self.includes = []
   # self.search_query = -> do
