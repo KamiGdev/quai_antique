@@ -13,23 +13,25 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
-    if user_signed_in?
-      @reservation.email = current_user.email
-      @reservation.lastname = current_user.lastname
-      @reservation.people_number = current_user.people_number
-      @reservation.allergy = current_user.allergy
-    end
+    init_new
   end
 
   # GET /reservations/1/edit
   def edit
   end
 
+  def refresh_date
+    @date = params[:date] && !params[:date].empty? ? Date.parse(params[:date]) : Date.today
+    set_available_slots
+    init_new
+    render :new
+  end
+
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-    slot = Slot.new date: @date, time: params[:slot]
+    slot = Slot.new date: Date.parse(reservation_params[:date]), time: params[:slot]
+    puts slot.inspect
 
     respond_to do |format|
       if @reservation.save
@@ -68,6 +70,16 @@ class ReservationsController < ApplicationController
   end
 
   private
+    def init_new
+      @reservation = Reservation.new
+      if user_signed_in?
+        @reservation.email = current_user.email
+        @reservation.lastname = current_user.lastname
+        @reservation.people_number = current_user.people_number
+        @reservation.allergy = current_user.allergy
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
@@ -79,8 +91,7 @@ class ReservationsController < ApplicationController
     end
 
     def set_available_slots
-      @date = Date.today # TODO: selectionner une date
-      @slots = Slot.all
+      @slots = Slot.where date: @date
 
       taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
       # ["10:30", "10:15"]
