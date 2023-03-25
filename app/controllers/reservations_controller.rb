@@ -82,12 +82,14 @@ class ReservationsController < ApplicationController
       @date = Date.today # TODO: selectionner une date
       @slots = Slot.all
 
-      taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") }
+      taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
+      # ["10:30", "10:15"]
       @available_slots = []
       (10..15).step(0.25).each do |hour|
-        hour_s =  format '%2d', hour.floor # piocher le 10 du 10.25
-        minute_s = (hour.modulo(1) * 60).to_i.to_s.rjust(2, '0') # transformer le 0.25 en 15min (le quart) et garder que le 25
-        slot = "#{hour_s}:#{minute_s}"
+        hour_s =  format '%2d', hour # piocher le 10 du 10.25
+        minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
+        slot = "#{hour_s}:#{minute_s}" # 10:15
+
         @available_slots << slot unless taken_slots.include? slot
       end
     end
