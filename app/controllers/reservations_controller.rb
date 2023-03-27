@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
   end
 
   def refresh_date
-    @date = params[:date] && !params[:date].empty? ? Date.parse(params[:date]) : Date.today
+    @date = params[:date].empty? ? Date.today : Date.parse(params[:date])
     set_available_slots
     init_new
     render :new
