@@ -1,8 +1,8 @@
-<div>
-  <h1 class="font-bold text-4xl">Menus#index</h1>
-  <p>Find me in app/views/menus/index.html.erb</p>
+<div class="grid grid-cols-2 gap-6">
   <% @menus.each do |menu| %>
-    <%= menu.title %>
+    <%= link_to "/menus/#{menu.id}" do %>
+      <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
+    <% end %>
   <% end %>
 </div>
 

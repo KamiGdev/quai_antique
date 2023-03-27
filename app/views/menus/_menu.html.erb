@@ -1,0 +1,12 @@
+<div class="my-4 <% show_details ? '' : 'bg-gray-100 shadow rounded-xl' %> p-8 flex flex-col">
+  <%= image_tag url_for(menu.illustration), class: 'rounded-xl h-[250px] self-center' %>
+  <h1 class="font-bold text-2xl mt-2"><%= menu.title %>
+    <% if menu.bestoff? %>
+      <span>⭐</span>
+    <% end %></h1>
+  <%= menu.subtitle %>
+  <% if show_details %>
+    <%= menu.description %>
+  <% end %>
+
+</div>
