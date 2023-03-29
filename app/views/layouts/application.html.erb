@@ -29,8 +29,10 @@
       <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Reservations", reservations_path %>
-      <%= link_to "Connexion", new_user_session_path %>
+      <%= link_to "Carte", menus_path %>
       <%= link_to "Contact", contact_path %>
+      <%= link_to "Connexion", new_user_session_path %>
+
     <% end %>
   </nav>
 
