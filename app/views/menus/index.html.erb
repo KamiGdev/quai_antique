@@ -1,7 +1,7 @@
 <div class="grid grid-cols-2 gap-6">
   <% @menus.each do |menu| %>
     <%= link_to "/menus/#{menu.id}" do %>
-      <%= render partial: 'menu', locals: { menu: menu, show_details: false, name: name } %>
+      <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
     <% end %>
   <% end %>
 </div>

@@ -6,7 +6,36 @@
     <% end %></h1>
   <%= menu.subtitle %>
   <% if show_details %>
-    <%= menu.description %>
-  <% end %>
 
+    <%= menu.description %>
+    Categories
+    <%= menu.dish.distinct.pluck(:moment) %>
+    <% Dish.where(moment: 'dessert').each do |d| %>
+      <br>
+
+      <%= d.name %>
+      (<%= d.moment %>)
+    <% end %>
+
+    <b>Entres</b>
+    <ul>
+      <% menu.dish.where(moment: 'entree').each do |d| %>
+        <li><%= d.name %></li>
+      <% end %>
+    </ul>
+    <hr>
+    <b>Plats</b>
+    <ul>
+      <% menu.dish.where(moment: 'plat').each do |d| %>
+        <li><%= d.name %></li>
+      <% end %>
+    </ul>
+    <hr>
+    <b>Desserts</b>
+    <ul>
+      <% menu.dish.where(moment: 'dessert').each do |d| %>
+        <li><%= d.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
