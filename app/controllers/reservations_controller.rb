@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
-  before_action :set_available_slots, only: %i[ new create ]
+  before_action :set_available_slots, only: %i[ new create edit update ]
 
   # GET /reservations or /reservations.json
   def index
@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
+    @date = Date.today
     init_new
   end
 
@@ -96,7 +97,15 @@ class ReservationsController < ApplicationController
       taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
       # ["10:30", "10:15"]
       @available_slots = []
-      (10..15).step(0.25).each do |hour|
+      (10..13).step(0.25).each do |hour|
+        hour_s =  format '%2d', hour # piocher le 10 du 10.25
+        minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
+        slot = "#{hour_s}:#{minute_s}" # 10:15
+
+        @available_slots << slot unless taken_slots.include? slot
+      end
+
+      (19..23).step(0.25).each do |hour|
         hour_s =  format '%2d', hour # piocher le 10 du 10.25
         minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
         slot = "#{hour_s}:#{minute_s}" # 10:15
