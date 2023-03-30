@@ -13,5 +13,6 @@ class MenuResource < Avo::BaseResource
   field :description, as: :textarea
   field :price, as: :number
   field :bestoff, as: :boolean
+  field :dishes, as: :has_and_belongs_to_many
   # add fields here
 end

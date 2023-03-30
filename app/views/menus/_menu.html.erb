@@ -4,20 +4,24 @@
     <% if menu.bestoff? %>
       <span>⭐</span>
     <% end %></h1>
+
   <%= menu.subtitle %>
+  <br>
+  <%= menu.price %>
+  <br>
   <% if show_details %>
 
+
     <%= menu.description %>
-    Categories
-    <%= menu.dish.distinct.pluck(:moment) %>
-    <% Dish.where(moment: 'dessert').each do |d| %>
+    <% menu.dish.distinct.pluck(:moment) %>
+    <% Dish.where(moment: 'entree').each do |d| %>
       <br>
 
       <%= d.name %>
       (<%= d.moment %>)
     <% end %>
 
-    <b>Entres</b>
+    <b>Entrées</b>
     <ul>
       <% menu.dish.where(moment: 'entree').each do |d| %>
         <li><%= d.name %></li>

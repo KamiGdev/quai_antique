@@ -8,7 +8,7 @@ class DishResource < Avo::BaseResource
   field :id, as: :id
   # Fields generated from the model
   field :name, as: :text
-  field :menu, as: :belongs_to
+  field :menus, as: :has_and_belongs_to_many
   field :moment, as: :text
   # add fields here
 end
