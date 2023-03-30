@@ -1,5 +1,5 @@
 <div class="my-4 <% show_details ? '' : 'bg-gray-100 shadow rounded-xl' %> p-8 flex flex-col">
-  <% if menu.illustration.exists? %>
+  <% if menu.illustration.attached? %>
     <%= image_tag url_for(menu.illustration), class: 'rounded-xl h-[250px] self-center' %>
   <% end %>
   <h1 class="font-bold text-2xl mt-2"><%= menu.title %>
@@ -16,31 +16,31 @@
 
     <%= menu.description %>
     <% menu.dishes.distinct.pluck(:category) %>
-    <% Dish.where(category: 'entree').each do |d| %>
+    <% Dish.where(category: 'Entrée').each do |d| %>
       <br>
 
-      <%= d.name %>
+      <%= d.title %>
       <%= d.category %>
     <% end %>
 
     <b>Entrées</b>
     <ul>
-      <% menu.dishes.where(category: 'entree').each do |d| %>
-        <li><%= d.name %></li>
+      <% menu.dishes.where(category: 'Entrée').each do |d| %>
+        <li><%= d.title %></li>
       <% end %>
     </ul>
     <hr>
     <b>Plats</b>
     <ul>
-      <% menu.dishes.where(category: 'plat').each do |d| %>
-        <li><%= d.name %></li>
+      <% menu.dishes.where(category: 'Plat').each do |d| %>
+        <li><%= d.title %></li>
       <% end %>
     </ul>
     <hr>
     <b>Desserts</b>
     <ul>
-      <% menu.dishes.where(category: 'dessert').each do |d| %>
-        <li><%= d.name %></li>
+      <% menu.dishes.where(category: 'Dessert').each do |d| %>
+        <li><%= d.title %></li>
       <% end %>
     </ul>
   <% end %>

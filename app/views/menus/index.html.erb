@@ -4,5 +4,26 @@
       <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
     <% end %>
   <% end %>
+
+  <hr>
+
 </div>
+
+<h2>Plats tout seuls</h2>
+<div class="grid grid-cols-3 gap-6">
+  <% Dish.all.each do |dish| %>
+    <div class="flex flex-col shadow rounded-xl overflow-hidden">
+      <% if dish.illustration.attached? %>
+        <%= image_tag url_for(dish.illustration), class: 'h-[250px] self-stretch bg-cover' %>
+      <% end %>
+
+      <div class="p-4">
+        <p class="mt-4 font-bold text-2xl"><%= dish.title %></p>
+        <p class="mt-4 font-bold text"><%= dish.subtitle %></p>
+        <p class="mt-4 text self-end"><%= dish.price %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
