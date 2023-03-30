@@ -1,17 +1,22 @@
-<div class="grid grid-cols-2 gap-6">
-  <% @menus.each do |menu| %>
-    <%= link_to "/menus/#{menu.id}" do %>
-      <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
+<%= link_to 'Desserts', '/menus?category=Dessert' %>
+<%= link_to 'Entrées', '/menus?category=Entrée' %>
+<%= link_to 'Plats', '/menus?category=Plat' %>
+
+<% if !params[:category] %>
+  <div class="grid grid-cols-2 gap-6">
+    <% @menus.each do |menu| %>
+      <%= link_to "/menus/#{menu.id}" do %>
+        <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
+      <% end %>
     <% end %>
-  <% end %>
-
-  <hr>
-
+    <hr>
 </div>
+<% end %>
+
 
 <h2>Plats tout seuls</h2>
 <div class="grid grid-cols-3 gap-6">
-  <% Dish.all.each do |dish| %>
+  <% @dishes.each do |dish| %>
     <div class="flex flex-col shadow rounded-xl overflow-hidden">
       <% if dish.illustration.attached? %>
         <%= image_tag url_for(dish.illustration), class: 'h-[250px] self-stretch bg-cover' %>
