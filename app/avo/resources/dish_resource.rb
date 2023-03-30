@@ -7,9 +7,12 @@ class DishResource < Avo::BaseResource
 
   field :id, as: :id
   # Fields generated from the model
-  field :name, as: :text
+  field :title, as: :text
+  field :subtitle, as: :text
   field :menus, as: :has_and_belongs_to_many
-  field :moment, as: :text
+  field :category, as: :text
   field :illustration, as: :file, is_image: true
+  field :price, as: :number
+  field :bestoff, as: :boolean
   # add fields here
 end
