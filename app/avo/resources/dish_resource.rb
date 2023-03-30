@@ -10,5 +10,6 @@ class DishResource < Avo::BaseResource
   field :name, as: :text
   field :menus, as: :has_and_belongs_to_many
   field :moment, as: :text
+  field :illustration, as: :file, is_image: true
   # add fields here
 end
