@@ -5,39 +5,35 @@
   <h1 class="font-bold text-2xl mt-2"><%= menu.title %>
     <% if menu.bestoff? %>
       <span>⭐</span>
-    <% end %></h1>
+    <% end %>
+  </h1>
 
   <%= menu.subtitle %>
   <br>
   <%= menu.price %>
   <br>
+
   <% if show_details %>
-
-
     <%= menu.description %>
     <% menu.dishes.distinct.pluck(:category) %>
     <% Dish.where(category: 'Entrée').each do |d| %>
-      <br>
-
-      <%= d.title %>
-      <%= d.category %>
     <% end %>
 
-    <b>Entrées</b>
+    <b>** Entrées **</b>
     <ul>
       <% menu.dishes.where(category: 'Entrée').each do |d| %>
         <li><%= d.title %></li>
       <% end %>
     </ul>
     <hr>
-    <b>Plats</b>
+    <b>** Plats **</b>
     <ul>
       <% menu.dishes.where(category: 'Plat').each do |d| %>
         <li><%= d.title %></li>
       <% end %>
     </ul>
     <hr>
-    <b>Desserts</b>
+    <b>** Desserts **</b>
     <ul>
       <% menu.dishes.where(category: 'Dessert').each do |d| %>
         <li><%= d.title %></li>

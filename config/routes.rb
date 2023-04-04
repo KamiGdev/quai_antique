@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :menus, only: [:index, :show]
+
+
   resources :reservations do
     collection do
       get 'refresh_date'

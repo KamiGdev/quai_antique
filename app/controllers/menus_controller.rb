@@ -1,5 +1,7 @@
 class MenusController < ApplicationController
   def index
+    @menus_only = params[:menu_only]
+
     if params[:category]
       @dishes = Dish.where category: params[:category]
     else

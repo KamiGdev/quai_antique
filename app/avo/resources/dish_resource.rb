@@ -14,5 +14,6 @@ class DishResource < Avo::BaseResource
   field :illustration, as: :file, is_image: true
   field :price, as: :number
   field :bestoff, as: :boolean
+  field :description, as: :textarea
   # add fields here
 end
