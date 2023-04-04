@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>QuaiAntique</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+<head>
+  <title>QuaiAntique</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-  <p class="notice bg-green-300"><%= notice %></p>
-  <p class="alert bg-red-300"><%= alert %></p>
+<body>
+<p class="notice bg-green-300"><%= notice %></p>
+<p class="alert bg-red-300"><%= alert %></p>
 
-  <nav class="[&>a]:underline grid grid-cols-5">
-    <% if user_signed_in? %>
-      <h1>Hello, <%= current_user.firstname %></h1>
+<nav class="[&>a]:underline grid grid-cols-5">
+  <% if user_signed_in? %>
+    <h1>Hello, <%= current_user.firstname %></h1>
 
 
-      <%= link_to "Profil", edit_user_registration_path %>
-      <%= link_to "Reservations", reservations_path %>
-      <%= link_to "Carte", menus_path %>
-      <% if current_user.admin? %>
-        <%= link_to "Admin", '/admin' %>
-      <% end %>
-
-      <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Reservations", reservations_path %>
-      <%= link_to "Carte", menus_path %>
-      <%= link_to "Contact", contact_path %>
-      <%= link_to "Connexion", new_user_session_path %>
-
+    <%= link_to "Profil", edit_user_registration_path %>
+    <%= link_to "Reservations", reservations_path %>
+    <%= link_to "Carte", menus_path %>
+    <% if current_user.admin? %>
+      <%= link_to "Admin", '/admin' %>
     <% end %>
-  </nav>
+
+    <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Reservations", reservations_path %>
+    <%= link_to "Carte", menus_path %>
+    <%= link_to "Contact", contact_path %>
+    <%= link_to "Connexion", new_user_session_path %>
+
+  <% end %>
+</nav>
 
 
-  <main class="container mx-auto mt-28 px-5 flex flex-col">
-      <%= yield %>
-
-    </main>
-  </body>
+<main class="container mx-auto mt-28 px-5 flex flex-col">
+  <%= yield %>
+</main>
+<%= render 'static_pages/footer' %>
+</body>
 </html>

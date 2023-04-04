@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lunch_starts_at: 2023-04-04 17:31:42
+  lunch_ends_at: 2023-04-04 17:31:42
+  dinner_starts_at: 2023-04-04 17:31:42
+  dinner_ends_at: 2023-04-04 17:31:42
+
+two:
+  lunch_starts_at: 2023-04-04 17:31:42
+  lunch_ends_at: 2023-04-04 17:31:42
+  dinner_starts_at: 2023-04-04 17:31:42
+  dinner_ends_at: 2023-04-04 17:31:42
