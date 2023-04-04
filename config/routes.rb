@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :dishes, only: [:show]
   resources :menus, only: [:index, :show]
 
+  get '/search', to: "menus#search"
 
   resources :reservations do
     collection do

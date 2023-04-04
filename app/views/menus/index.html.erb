@@ -5,6 +5,14 @@
 <%# JE N'ARRIVE PAS A TROUVER LE CODE  %>
 <%= link_to 'Menus', '/menus?menu_only=true' %>
 
+
+
+<%# Search Bar %>
+<%= form_with url: "/search", method: :get do |form| %>
+  <%= form.text_field :query %>
+  <%= form.submit "Rechercher" %>
+<% end %>
+
 <% if @menus_only %>
   <%# Affichage Menus %>
   <div class="grid grid-cols-2 gap-6">
@@ -32,27 +40,9 @@
 <%# Sinon Plats tout seuls %>
   <div class="grid grid-cols-3 gap-6">
     <% @dishes.each do |dish| %>
-      <div class="flex flex-col shadow rounded-xl overflow-hidden">
-        <% if dish.illustration.attached? %>
-          <%= image_tag url_for(dish.illustration), class: 'h-[250px] self-stretch bg-cover' %>
-        <% end %>
-
-        <div class="p-4">
-          <p class="mt-4 font-bold text-2xl"><%= dish.title %>
-            <% if dish.bestoff? %>
-              <span>⭐</span>
-            <% end %>
-          </p>
-          <p class="mt-4 font-bold text"><%= dish.subtitle %></p>
-          <p class="mt-4 text self-end"><%= dish.price %></p>
-        </div>
-
-        <%# Show dish description on click %>
-        <%# CODE POUR QUE CA MARCHE  %>
-        <%#= dish.description %>
-
-
-      </div>
+      <%= link_to "/dishes/#{dish.id}" do %>
+        <%= render partial: 'dishes/dish', locals: { dish: dish, show_details: false } %>
+      <% end %>
     <% end %>
   </div>
 
