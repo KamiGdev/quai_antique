@@ -1,0 +1,57 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+<style>
+    .swiper {
+        width: 600px;
+        height: 300px;
+    }
+</style>
+
+
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <% bestoff_items.each do |item| %>
+      <div class="swiper-slide">
+        <div class="relative h-full w-full">
+          <%= item.title %>
+          <% if item.illustration.attached? %>
+            <%= image_tag url_for(item.illustration), class: 'absolute inset-0 w-full h-full object-cover object-center rounded-xl' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    const swiper = new Swiper('.swiper', {
+        autoplay: true,
+        // Optional parameters
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
