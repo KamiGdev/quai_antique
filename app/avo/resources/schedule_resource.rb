@@ -7,7 +7,7 @@ class ScheduleResource < Avo::BaseResource
 
   field :id, as: :id
   # Fields generated from the model
-  field :lunch_starts_at, as: :time, relative: false, time_24hr: true, format: 'H:mm', picker_format: 'H:i'
+  field :lunch_starts_at, as: :time, relative: false, time_24hr: true, format: 'HH:mm', picker_format: 'H:i'
   field :lunch_ends_at, as: :time, relative: false, time_24hr: true, format: 'H:mm', picker_format: 'H:i'
   field :dinner_starts_at, as: :time, relative: false, time_24hr: true, format: 'H:mm', picker_format: 'H:i'
   field :dinner_ends_at, as: :time, relative: false, time_24hr: true, format: 'H:mm', picker_format: 'H:i'

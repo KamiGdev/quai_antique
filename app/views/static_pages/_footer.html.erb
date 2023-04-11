@@ -2,16 +2,17 @@
   <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
     <h5 class="text-uppercase mb-4">Horaires d'ouverture</h5>
 
-    <p>OUVERT TOUS LES JOURS</p><table class="table text-center">
+    <p>Du mardi au dimanche inclus</p><table class="table text-center">
+
     <tbody class="font-weight-normal">
 
     <tr>
       <td>MIDI</td>
-      <td><%= Schedule.last.lunch_starts_at.to_s(:time) %> - <%= Schedule.last.lunch_ends_at.to_s(:time) %> </td>
+      <td><%= Schedule.first.lunch_starts_at.to_s(:time) %> - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
     </tr>
     <tr>
       <td>SOIR</td>
-      <td><%= Schedule.last.dinner_starts_at.to_s(:time) %> - <%= Schedule.last.dinner_ends_at.to_s(:time) %> </td>
+      <td><%= Schedule.first.dinner_starts_at.to_s(:time) %> - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
     </tr>
 
     </tbody>

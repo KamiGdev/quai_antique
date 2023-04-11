@@ -17,8 +17,8 @@ class MenusController < ApplicationController
   def search
     query = params[:query]
     @menus_only = false
-    @menus = Menu.where("title like ?", "%#{query}%")
-    @dishes = Dish.where("title like ?", "%#{query}%")
+    @menus = Menu.where("title ILIKE ?", "%#{query}%")
+    @dishes = Dish.where("title ILIKE ?", "%#{query}%")
     render :index
   end
 
