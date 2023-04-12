@@ -1,0 +1,45 @@
+<div>
+  <button onclick="toggleMenu()"
+          class="flex bg-white items-center ring-greige ring-2 rounded-full p-2 self-end hover:shadow-2xl transition duration-500 ease-in-out">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2.5" stroke="#AA9B9A"
+         class="w-8 h-8"
+         viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2.5" stroke="#AA9B9A" class="w-10 h-10"
+         viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+    </svg>
+  </button>
+
+  <div class="relative">
+    <div id='menu' class="bg-white text-brown absolute z-50 w-max top-2 right-6 rounded shadow p-5 hidden flex flex-col items-start [&>*]:mt-2">
+      <%= link_to "Carte", menus_path, class: 'lg:hidden' %>
+      <% if user_signed_in? %>
+        <%= link_to "Profil", edit_user_registration_path %>
+        <% if current_user.admin? %>
+          <%= link_to "Admin", '/admin' %>
+        <% end %>
+        <%= button_to "Se déconnecter",
+                      destroy_user_session_path,
+                      method: :delete,
+                      class: 'text-left'
+        %>
+        <%= link_to "Contact", contact_path, class: 'lg:hidden' %>
+      <% else %>
+        <%= link_to "Connexion", new_user_session_path %>
+        <%= link_to "Inscription", new_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    function toggleMenu() {
+        const menu_el = document.getElementById('menu')
+        menu_el.classList.toggle('hidden')
+    }
+</script>
+

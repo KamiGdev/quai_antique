@@ -11,3 +11,21 @@
 }
 
 */
+
+@layer base {
+    h1 {
+        font-family: Moul,
+    }
+    h2 {
+        font-family: Prompt,
+    }
+
+    h3 {
+        font-family: Athiti,
+
+    }
+    /* Cible toutes les balises <h1>...</h1> */
+}
+
+
+

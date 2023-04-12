@@ -5,56 +5,43 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <!-- Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200&family=Josefin+Sans&family=Lato:wght@100;300&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200&family=Josefin+Sans&family=Lato:wght@100;300&display=swap" rel="stylesheet">
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200&family=Josefin+Sans&family=Lato:wght@100;300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&family=Moul&family=Prompt:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN -->
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
 
 <body>
+<!-- Flash notices -->
 <p class="notice bg-green-300"><%= notice %></p>
 <p class="alert bg-red-300"><%= alert %></p>
 
-<nav class="[&>a]:underline grid grid-cols-5">
-  <% if user_signed_in? %>
-    <h1>Hello, <%= current_user.firstname %></h1>
-
-
-    <%= link_to "Profil", edit_user_registration_path %>
+<!-- Nav links-->
+<nav class="relative w-full text-white flex justify-between place-items-center bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:px-16 [&>div]:items-center">
+  <div>
+    <%= link_to "Carte", menus_path, class: 'hidden lg:block' %>
     <%= link_to "Reserver", new_reservation_path %>
-    <%= link_to "Carte", menus_path %>
-    <%= link_to "Contact", contact_path %>
-    <% if current_user.admin? %>
-      <%= link_to "Admin", '/admin' %>
-    <% end %>
-
-    <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Réserver", new_reservation_path %>
-    <%= link_to "Carte", menus_path %>
-    <%= link_to "Contact", contact_path %>
-    <%= link_to "Connexion", new_user_session_path %>
-  <% end %>
+  </div>
+  <div>
+    <%= link_to "Contact", contact_path, class: 'hidden lg:block' %>
+    <%= render partial: 'layouts/menu_button' %>
+  </div>
+  <%= image_tag 'logo.png', class: "w-20 absolute left-1/2 translate-x-[-50%]" %>
 </nav>
 
 
 <main class="container mx-auto mt-28 px-5 flex flex-col">
+
+
   <%= yield %>
 </main>
+
 <%= render 'static_pages/footer' %>
+
+
 </body>
 </html>

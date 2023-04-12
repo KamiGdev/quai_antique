@@ -7,9 +7,13 @@
     <%= render @reservation %>
 
     <%= link_to 'Edit this reservation', edit_reservation_path(@reservation), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
     <div class="inline-block ml-2">
+      <% if current_user %>
       <%= button_to 'Destroy this reservation', reservation_path(@reservation), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
-    <%= link_to 'Back to reservations', reservations_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Back to reservations', reservations_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% end %>
+
   </div>
 </div>

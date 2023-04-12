@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :set_available_slots, only: %i[ new create edit update ]
 
