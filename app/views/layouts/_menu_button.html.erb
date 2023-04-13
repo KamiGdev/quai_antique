@@ -1,7 +1,7 @@
 <div>
   <!-- Navbar's toggle button -->
   <button onclick="toggleMenu()"
-          class="flex bg-white items-center ring-greige ring-2 rounded-full p-2 self-end hover:shadow-2xl transition duration-500 ease-in-out">
+          class="flex bg-white items-center ring-greige ring-2 rounded-full p-2 hover:shadow-2xl transition duration-500 ease-in-out">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2.5" stroke="#AA9B9A"
          class="w-8 h-8"
          viewBox="0 0 24 24">
@@ -17,20 +17,20 @@
   <!-- Dropdownn button -->
   <div class="relative">
     <div id='menu' class="hidden bg-white text-brown absolute z-50 w-max top-2 right-6 rounded shadow p-5 flex flex-col items-start [&>*]:mt-2">
-      <%= link_to "Carte", menus_path, class: 'tabnav lg:hidden'%>
+      <%= link_to "Carte", menus_path, class: 'tabnav lg:hidden' %>
 
       <% if user_signed_in? %>
-        <%= link_to "Profil", edit_user_registration_path, class: 'tabnav'%>
+        <%= link_to "Profil", edit_user_registration_path, class: 'tabnav' %>
         <% if current_user.admin? %>
-          <%= link_to "Admin", '/admin', class: 'tabnav'%>
-        <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'tabnav text-left'%>
+          <%= link_to "Admin", '/admin', class: 'tabnav' %>
+          <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'tabnav text-left' %>
         <% end %>
 
         <%= link_to "Contact", contact_path, class: 'tabnav lg:hidden' %>
 
       <% else %>
-        <%= link_to "Connexion", new_user_session_path, class: 'tabnav'%>
-        <%= link_to "Inscription", new_user_registration_path, class: 'tabnav'%>
+        <%= link_to "Connexion", new_user_session_path, class: 'tabnav' %>
+        <%= link_to "Inscription", new_user_registration_path, class: 'tabnav' %>
       <% end %>
     </div>
   </div>
