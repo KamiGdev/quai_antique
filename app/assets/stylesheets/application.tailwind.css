@@ -35,6 +35,28 @@
         line-height: 1.5rem;
     }
 
+    #devise {
+        @apply flex flex-col items-center;
+    }
+
+
+    input:not([type=checkbox]) {
+        @apply block shadow rounded-md border border-slate outline-none px-3 py-2 mb-4 w-full  focus:ring focus:ring-slate transition focus:outline-none;
+    }
+
+
+    input[type=checkbox] {
+        @apply rounded;
+    }
+
+    input[type=submit], button {
+        @apply bg-brown mt-8 text-white;
+    }
+
+    #devise a {
+        @apply underline;
+    }
+
 }
 
 

@@ -18,7 +18,10 @@
     <% bestoff_items.each do |item| %>
       <div class="swiper-slide">
         <div class="relative h-full w-full">
-          <%= item.title %>
+          <h2 class="absolute z-50 text-white w-full p-4 text-center">
+            <%= item.title %>
+          </h2>
+
           <% if item.illustration.attached? %>
             <%= image_tag url_for(item.illustration), class: 'absolute inset-0 w-full h-full object-cover object-center rounded-xl' %>
           <% end %>

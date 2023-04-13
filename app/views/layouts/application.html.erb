@@ -17,8 +17,6 @@
 
 <body>
 <main class="flex flex-col justify-between h-[100vh]">
-
-
   <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:px-16 [&>div]:items-center">
     <div>
       <%= link_to "Carte", menus_path, class: 'hidden tabnav lg:block' %>
@@ -37,7 +35,7 @@
     <!-- Flash notices -->
     <p class="notice bg-green-300"><%= notice %></p>
     <p class="alert bg-red-300"><%= alert %></p>
-    
+
     <%= yield %>
   </div>
 
