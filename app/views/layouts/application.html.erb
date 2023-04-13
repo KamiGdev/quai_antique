@@ -17,9 +17,7 @@
 
 <body>
 <main class="flex flex-col justify-between h-[100vh]">
-  <!-- Flash notices -->
-  <p class="notice bg-green-300"><%= notice %></p>
-  <p class="alert bg-red-300"><%= alert %></p>
+
 
   <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:px-16 [&>div]:items-center">
     <div>
@@ -32,10 +30,14 @@
       <%= render partial: 'layouts/menu_button' %>
     </div>
 
-    <%= image_tag 'logo.png', class: "w-20 absolute left-1/2 translate-x-[-50%]" %>
+    <%= link_to image_tag('logo.png'), root_path, class: "w-20 absolute left-1/2 translate-x-[-50%]" %>
   </nav>
 
   <div class="container mx-auto my-16 px-5 flex flex-col ">
+    <!-- Flash notices -->
+    <p class="notice bg-green-300"><%= notice %></p>
+    <p class="alert bg-red-300"><%= alert %></p>
+    
     <%= yield %>
   </div>
 
