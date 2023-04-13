@@ -11,12 +11,8 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Date:</strong>
-    <%= reservation.date %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Time:</strong>
-    <%= reservation.time %>
+    <%= reservation.slot.date %> à
+    <%= reservation.slot.time.strftime("%H:%M") %>
   </p>
 
   <p class="my-5">

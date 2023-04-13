@@ -20,20 +20,20 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
+    @date = @reservation.slot.date
   end
 
   def refresh_date
-    @date = params[:date].empty? ? Date.today : Date.parse(params[:date])
+    @date = Date.parse(params[:date])
     set_available_slots
-    init_new
-    render :new
+    # init_new
+    # render :new
   end
 
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-    slot = Slot.new date: Date.parse(reservation_params[:date]), time: params[:slot]
-    puts slot.inspect
+    slot = Slot.new date: Date.parse(params[:date]), time: params[:slot]
 
     respond_to do |format|
       if @reservation.save
@@ -51,7 +51,12 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
     respond_to do |format|
+      slot = Slot.find @reservation.slot.id
+      slot.destroy!
+      slot = Slot.new date: Date.parse(params[:date]), time: params[:slot]
       if @reservation.update(reservation_params)
+        slot.reservation_id = @reservation.id
+        slot.save!
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
         format.json { render :show, status: :ok, location: @reservation }
       else
@@ -72,46 +77,53 @@ class ReservationsController < ApplicationController
   end
 
   private
-    def init_new
-      @reservation = Reservation.new
-      if user_signed_in?
-        @reservation.email = current_user.email
-        @reservation.lastname = current_user.lastname
-        @reservation.people_number = current_user.people_number
-        @reservation.allergy = current_user.allergy
-      end
+
+  def init_new
+    @reservation = Reservation.new
+    if user_signed_in?
+      @reservation.email = current_user.email
+      @reservation.lastname = current_user.lastname
+      @reservation.people_number = current_user.people_number
+      @reservation.allergy = current_user.allergy
     end
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reservation
-      @reservation = Reservation.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reservation_params
+    params.require(:reservation).permit(:lastname, :email, :phone_number, :date, :people_number, :allergy)
+  end
+
+  def set_available_slots
+    @date = @date || Date.today
+    @slots = Slot.where date: @date
+
+    taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
+    # ["10:30", "10:15"]
+
+    @available_slots = []
+    (11..14).step(0.25).each do |hour|
+      hour_s = format '%2d', hour # piocher le 10 du 10.25
+      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
+      slot = "#{hour_s}:#{minute_s}" # 10:15
+
+      @available_slots << slot unless taken_slots.include? slot
     end
+    puts 'hey'
+    puts taken_slots
 
-    # Only allow a list of trusted parameters through.
-    def reservation_params
-      params.require(:reservation).permit(:lastname, :email, :phone_number, :date, :people_number, :allergy)
+=begin
+    (19..22).step(0.25).each do |hour|
+      hour_s = format '%2d', hour # piocher le 10 du 10.25
+      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
+      slot = "#{hour_s}:#{minute_s}" # 10:15
+
+      @available_slots << slot unless taken_slots.include? slot
     end
-
-    def set_available_slots
-      @slots = Slot.where date: @date
-
-      taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
-      # ["10:30", "10:15"]
-      @available_slots = []
-      (11..14).step(0.25).each do |hour|
-        hour_s =  format '%2d', hour # piocher le 10 du 10.25
-        minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
-        slot = "#{hour_s}:#{minute_s}" # 10:15
-
-        @available_slots << slot unless taken_slots.include? slot
-      end
-
-      (19..22).step(0.25).each do |hour|
-        hour_s =  format '%2d', hour # piocher le 10 du 10.25
-        minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
-        slot = "#{hour_s}:#{minute_s}" # 10:15
-
-        @available_slots << slot unless taken_slots.include? slot
-      end
-    end
+=end
+  end
 end
