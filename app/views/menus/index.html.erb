@@ -11,7 +11,7 @@
 <% end %>
 
 <% if @menus_only %>
-  <%# Affichage uniquement des Menus %>
+  <%# Display only menus = formulas %>
   <div class="grid grid-cols-2 gap-6">
     <% @menus.each do |menu| %>
       <%= link_to "/menus/#{menu.id}" do %>
@@ -22,7 +22,7 @@
   </div>
 <% else %>
 
-  <%# Si on ne choisit pas les catégories entrées, plats, desserts %>
+  <%# If we do not choose starters, main courses or desserts %>
   <% if !params[:category] %>
     <%# Alors affichage Menus %>
     <div class="grid grid-cols-2 gap-6">
@@ -36,7 +36,7 @@
   <% end %>
 
 
-<%# Avec Plats tout seuls %>
+<%# With main courses only %>
   <div class="grid grid-cols-3 gap-6">
     <% @dishes.each do |dish| %>
       <%= link_to "/dishes/#{dish.id}" do %>

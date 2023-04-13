@@ -13,18 +13,34 @@
 */
 
 @layer base {
-    h1 {
-        font-family: Moul,
-    }
-    h2 {
-        font-family: Prompt,
+    h1 { /* Tailwind text-4xl */
+        font-family: Moul;
+        font-weight: bold;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
     }
 
-    h3 {
-        font-family: Athiti,
-
+    h2 { /* Tailwind text-2xl */
+        font-family: Prompt;
+        font-weight: lighter;
+        font-style: italic;
+        font-size: 1.5rem;
+        line-height: 2rem;
     }
-    /* Cible toutes les balises <h1>...</h1> */
+
+    h3 { /* Tailwind text-base */
+        font-family: Athiti;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+}
+
+
+/* Navbar */
+.tabnav:hover {
+    font-weight: bolder;
 }
 
 

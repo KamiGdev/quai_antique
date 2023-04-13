@@ -1,21 +1,56 @@
-<footer>
-  <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-    <h5 class="text-uppercase mb-4">Horaires d'ouverture</h5>
+<footer class="bg-slate py-4 px-8">
+  <div class="grid grid-cols-3 py-5 px-16 gap-8 justify-around">
 
-    <p>Du mardi au dimanche inclus</p><table class="table text-center">
+    <div class="flex flex-col text-white">
+      <div>
+        <ul>
+          <li class="h4 text-x ">Addresse</li>
+          <li class="" style="font-family: Athiti">23 rue des Champignons</li>
+          <li class="" style="font-family: Athiti">FR-73000 Chamonix</li>
+          <li>Téléphone : + 07 33353535353</li>
+          <li><%= link_to "Contact", contact_path, class: "underline hover:font-bold" %></li>
+        </ul>
 
-    <tbody class="font-weight-normal">
+      </div>
+    </div>
 
-    <tr>
-      <td>MIDI</td>
-      <td><%= Schedule.first.lunch_starts_at.to_s(:time) %> - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
-    </tr>
-    <tr>
-      <td>SOIR</td>
-      <td><%= Schedule.first.dinner_starts_at.to_s(:time) %> - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
-    </tr>
+    <div class="flex flex-col items-center">
+      <%= image_tag 'logo.png', class: 'w-36' %>
+      <span>sadklfj</span>
+      <span>sadklfj</span>
+    </div>
 
-    </tbody>
-  </table>
+    <div class="justify-self-end">
+      <h4 class="text-uppercase mb-4">Horaires d'ouverture</h4>
+
+      <p>Du mardi au dimanche inclus</p>
+
+      <table class="table text-center">
+
+        <tbody class="font-weight-normal">
+
+        <tr>
+          <td>MIDI</td>
+          <td><%= Schedule.first.lunch_starts_at.to_s(:time) %> - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
+        </tr>
+        <tr>
+          <td>SOIR</td>
+          <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
+            - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="flex flex-col items-center w-full mt-6">
+    <div class="w-[50vw] h-[1px] bg-whitegray"/>
+  </div>
+
+  <div class="text-center py-2">
+    Copywrite
   </div>
 </footer>

@@ -17,7 +17,7 @@ module.exports = {
         'greige': '#AA9B9A'
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Athiti', 'Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
   },
