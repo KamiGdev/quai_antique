@@ -22,11 +22,11 @@
       <%= link_to "Contact", contact_path, class: 'tabnav xl:hidden' %>
 
       <% if user_signed_in? %>
-        <%= link_to "Profil", edit_user_registration_path, class: 'tabnav' %>
         <% if current_user.admin? %>
           <%= link_to "Admin", '/admin', class: 'tabnav' %>
-          <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'tabnav text-left' %>
         <% end %>
+        <%= link_to "Profil", edit_user_registration_path, class: 'tabnav' %>
+        <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'tabnav text-left' %>
 
       <% else %>
         <%= link_to "Connexion", new_user_session_path, class: 'tabnav' %>

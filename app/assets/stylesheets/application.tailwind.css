@@ -20,7 +20,7 @@
 
 /* Body background color */
 body {
-    @apply bg-gradient-to-r from-whitegray via-clearbrown to slate;
+    @apply bg-gradient-to-r from-whitegray via-clearbrown;
 }
 
 .body_bg_homepage {
@@ -31,20 +31,21 @@ body {
 /* h & p customs */
 @layer base {
     h1 {
-        @apply text-7xl font-moul font-bold;
+        @apply text-7xl;
     }
 
     h2 {
-        @apply text-4xl font-prompt font-italic;
+        @apply text-4xl;
     }
 
     h3 {
-        @apply text-3xl font-athiti font-medium;
+        @apply text-3xl;
     }
 
     p {
-        @apply text-2xl font-athiti font-normal;
+        @apply text-2xl;
     }
+
 }
 
 

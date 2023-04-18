@@ -1,45 +1,43 @@
 <div id="devise">
 
-  <h1>Sign up</h1>
+  <h1>Inscription</h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
       <%= f.label :firstname %><br/>
-      <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+      <%= f.text_field :firstname, required: true, autocomplete: "firstname" %>
     </div>
 
     <div class="field">
       <%= f.label :lastname %><br/>
-      <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+      <%= f.text_field :lastname, required: true, autocomplete: "lastname" %>
     </div>
 
     <div class="field">
       <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, required: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
       <%= f.label 'People number by default' %><br/>
-      <%= f.text_field :people_number, autofocus: true, autocomplete: "number", type: 'number' %>
+      <%= f.text_field :people_number, required: true, autocomplete: "number", type: 'number' %>
     </div>
 
     <div class="field">
       <%= f.label :allergy %><br/>
-      <%= f.text_field :allergy, autofocus: true, autocomplete: "text" %>
+      <%= f.text_field :allergy, autocomplete: "text" %>
     </div>
 
     <div class="field">
       <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "new-password", pattern: "/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g" %>
+      <%= f.password_field :password, autocomplete: "new-password", required: true, minlength: 8 %>
+      <p class="mb-4">Le mot de passe doit avoir une longueur de 8 à 12 caractères</p>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
     </div>
 
     <div class="actions">

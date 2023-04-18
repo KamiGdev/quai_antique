@@ -21,8 +21,8 @@ module.exports = {
                 sans: ['Athiti', 'Inter var', ...defaultTheme.fontFamily.sans],
                 'Athiti': ['Athiti', 'sans-serif'],
                 'Prompt': ['Prompt', 'sans-serif'],
-                'Moul': ['Moul', cursive],
-                'DancingScript': ['"Dancing Script"', cursive]
+                'Moul': ['Moul', 'cursive'],
+                'DancingScript': ['"Dancing Script"', 'cursive']
             },
         },
     },

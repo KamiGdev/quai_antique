@@ -1,31 +1,31 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>Edit <%= resource_name.to_s.humanize %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+    <%= f.label :firstname %><br/>
+    <%= f.text_field :firstname, required: true, autocomplete: "firstname" %>
   </div>
 
   <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+    <%= f.label :lastname %><br/>
+    <%= f.text_field :lastname, required: true, autocomplete: "lastname" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, required: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :people_number %><br />
-    <%= f.text_field :people_number, autofocus: true, autocomplete: "number", type: 'number' %>
+    <%= f.label :people_number %><br/>
+    <%= f.text_field :people_number, required: true, autocomplete: "number", type: 'number' %>
   </div>
 
   <div class="field">
-    <%= f.label :allergy %><br />
-    <%= f.text_field :allergy, autofocus: true, autocomplete: "text" %>
+    <%= f.label :allergy %><br/>
+    <%= f.text_field :allergy, autocomplete: "text" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -33,21 +33,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password", minlength: 8 %>
+    <p class="mb-4">Le mot de passe doit avoir une longueur de 8 à 12 caractères</p>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(Saisissez votre mot de passe actuel pour confirmer les changements)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -60,4 +57,4 @@
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour", :back %>

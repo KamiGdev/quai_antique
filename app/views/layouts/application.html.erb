@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
 <head>
   <title>QuaiAntique</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,8 +15,7 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body class="<%= @body_homepage ? 'body_bg_homepage' : '' %>">
-
+<body class="<%= current_page?(root_path) ? 'body_bg_homepage' : '' %>">
 <main class="flex flex-col justify-between h-[100vh]">
   <!-- Navbar-->
   <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:px-16 [&>div]:items-center">
