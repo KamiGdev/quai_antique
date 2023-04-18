@@ -12,58 +12,83 @@
 
 */
 
-@layer base {
-    h1 { /* Tailwind text-4xl */
-        font-family: Moul;
-        font-weight: bold;
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
-
-    h2 { /* Tailwind text-2xl */
-        font-family: Prompt;
-        font-weight: lighter;
-        font-style: italic;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
-
-    h3 { /* Tailwind text-base */
-        font-family: Athiti;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #devise {
-        @apply flex flex-col items-center;
-    }
-
-
-    input:not([type=checkbox]) {
-        @apply block shadow rounded-md border border-slate outline-none px-3 py-2 mb-4 w-full  focus:ring focus:ring-slate transition focus:outline-none;
-    }
-
-
-    input[type=checkbox] {
-        @apply rounded;
-    }
-
-    #devise button, input[type=submit] {
-        @apply bg-brown mt-8 text-white;
-    }
-
-    #devise a {
-        @apply underline;
-    }
-
-}
-
 
 /* Navbar */
 .tabnav:hover {
     font-weight: bolder;
 }
 
+/* Body background color */
+body {
+    @apply bg-gradient-to-r from-whitegray via-clearbrown to slate;
+}
+
+.body_bg_homepage {
+    background-color: #F5F5F5;
+}
 
 
+/* h & p customs */
+@layer base {
+    h1 {
+        @apply text-7xl font-moul font-bold;
+    }
+
+    h2 {
+        @apply text-4xl font-prompt font-italic;
+    }
+
+    h3 {
+        @apply text-3xl font-athiti font-medium;
+    }
+
+    p {
+        @apply text-2xl font-athiti font-normal;
+    }
+}
+
+
+/* Customization forms */
+#devise {
+    @apply flex flex-col items-center pt-6;
+}
+
+
+input:not([type=checkbox]) {
+    @apply block shadow rounded-md border border-slate outline-none px-3 py-2 mb-4 w-full focus:ring-slate transition focus:outline-none;
+}
+
+
+input[type=checkbox] {
+    @apply rounded;
+}
+
+#devise button, input[type=submit] {
+    @apply bg-brown mt-8 text-white;
+}
+
+#devise a {
+    @apply underline;
+}
+
+
+/* Carousel Swiper js - target the active bullet */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: white;
+    opacity: 1;
+}
+
+/*  Carousel Swiper js - target all bullets */
+.swiper-pagination-bullet {
+    background-color: #60473B;
+    opacity: 1;
+}
+
+/*  Carousel Swiper js - target the button next and prev. */
+.swiper-button-next {
+    --swiper-navigation-color: #F5F5F5;
+}
+
+.swiper-button-prev {
+    --swiper-navigation-color: #F5F5F5;
+}

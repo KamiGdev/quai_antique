@@ -1,56 +1,65 @@
-<footer class="bg-slate py-4 px-8">
-  <div class="grid grid-cols-3 py-5 px-16 gap-8 justify-around">
+<footer class="bg-greige py-4 px-8">
+  <%# 3 content block %>
+  <div class="grid grid-cols-3 py-5 px-8 gap-8 justify-around">
 
-    <div class="flex flex-col text-white">
+    <div class="flex flex-col text-white items-center mt-4">
       <div>
         <ul>
-          <li class="h4 text-x ">Addresse</li>
-          <li class="" style="font-family: Athiti">23 rue des Champignons</li>
-          <li class="" style="font-family: Athiti">FR-73000 Chamonix</li>
-          <li>Téléphone : + 07 33353535353</li>
+          <li><h2 class="text-brown">Addresse :</h2></li>
+          <li class="text-white mt-3">23 rue des Champignons</li>
+          <li class="text-white">FR-74400 Chamonix-Mont-Blanc</li>
+          <li class="text-white">Téléphone : 04 50 53 12 34</li>
           <li><%= link_to "Contact", contact_path, class: "underline hover:font-bold" %></li>
         </ul>
 
       </div>
     </div>
 
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center text-center text-zinc-950 ">
       <%= image_tag 'logo.png', class: 'w-36' %>
-      <span>sadklfj</span>
-      <span>sadklfj</span>
+      <span class="text-2xl text-white font-DancingScript font-extrabold">Quai Antique</span>
+      <span class="text-2xl capitalize font-bold mt-2">Restaurant d'alpage gastronomique</span>
+      <p class="text-xl">Des saveurs authentiques et raffinées pour émerveiller vos sens.</p>
+      <br>
     </div>
 
-    <div class="justify-self-end">
-      <h4 class="text-uppercase mb-4">Horaires d'ouverture</h4>
+    <div class="flex flex-col items-center mt-4 text-white">
+      <div>
+        <h2 class="text-brown">Horaires d'ouverture</h2>
 
-      <p>Du mardi au dimanche inclus</p>
+        <p class="mt-3">Du mardi au dimanche inclus</p>
 
-      <table class="table text-center">
+        <table class="table text-center">
 
-        <tbody class="font-weight-normal">
+          <tbody class="font-weight-normal">
 
-        <tr>
-          <td>MIDI</td>
-          <td><%= Schedule.first.lunch_starts_at.to_s(:time) %> - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
-        </tr>
-        <tr>
-          <td>SOIR</td>
-          <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
-            - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
-        </tr>
+          <tr>
+            <td>MIDI</td>
+            <td><%= Schedule.first.lunch_starts_at.to_s(:time) %>
+              - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
+          </tr>
+          <tr>
+            <td>SOIR</td>
+            <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
+              - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
+          </tr>
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
 
+      </div>
     </div>
 
   </div>
 
+  <%# Separating line %>
   <div class="flex flex-col items-center w-full mt-6">
     <div class="w-[50vw] h-[1px] bg-whitegray"/>
   </div>
 
+<%# Copyright %>
   <div class="text-center py-2">
-    Copywrite
+    Copyright &copy; Quai Antique - Site fictif
   </div>
+
 </footer>

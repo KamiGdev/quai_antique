@@ -5,7 +5,7 @@
 <style>
     .swiper {
         width: 600px;
-        height: 300px;
+        height: 400px;
     }
 </style>
 
@@ -18,7 +18,7 @@
     <% bestoff_items.each do |item| %>
       <div class="swiper-slide">
         <div class="relative h-full w-full">
-          <h2 class="absolute z-50 text-white w-full p-4 text-center">
+          <h2 class="absolute z-50 text-white w-full p-4 text-center ">
             <%= item.title %>
           </h2>
 
@@ -28,7 +28,9 @@
         </div>
       </div>
     <% end %>
+
   </div>
+
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
 

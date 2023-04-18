@@ -9,7 +9,6 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1 or /reservations/1.json
   def show
-
   end
 
   # GET /reservations/new
@@ -107,16 +106,14 @@ class ReservationsController < ApplicationController
 
     @available_slots = []
     (11..14).step(0.25).each do |hour|
+      # lunch hours
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
       slot = "#{hour_s}:#{minute_s}" # 10:15
 
       @available_slots << slot unless taken_slots.include? slot
     end
-    puts 'hey'
-    puts taken_slots
 
-=begin
     (19..22).step(0.25).each do |hour|
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
@@ -124,6 +121,8 @@ class ReservationsController < ApplicationController
 
       @available_slots << slot unless taken_slots.include? slot
     end
-=end
+
+    puts taken_slots
+
   end
 end

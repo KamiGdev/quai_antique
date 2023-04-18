@@ -29,7 +29,7 @@
   <%= label_tag :date, 'Selectionnez une date' %>
   <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)' %>
 
-  <%# Si je suis en mode edition %>
+  <%# If I am in an form's edition view %>
   <% if reservation.slot %>
     <h3>Heure initiale: <%= reservation.slot.time.strftime("%H:%M") %></h3>
   <% end %>
@@ -56,9 +56,12 @@
 
 <script type="text/javascript" charset="utf-8">
     function onChange(event) {
+        // On récupère le champs
         const value = event.target.value
+        // On envoie la valeur au serveur
         fetch('/reservations/refresh_date?date=' + value)
             .then(res => res.text())
             .then(html => Turbo.renderStreamMessage(html))
+        // On remplace avec la nouvelle valeur
     }
 </script>
