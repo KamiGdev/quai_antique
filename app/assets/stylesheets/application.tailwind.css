@@ -120,7 +120,9 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: #F5F5F5;
     border-radius: 0.5rem;
     padding: 4px;
+    width: auto;
 }
+
 
 .menu-button {
     padding: 16px;

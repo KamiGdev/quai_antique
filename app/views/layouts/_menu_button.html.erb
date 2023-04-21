@@ -1,14 +1,14 @@
-<div>
+<div class="!lg:px-0">
   <!-- Navbar's toggle button -->
   <button onclick="toggleMenu()"
           class="flex bg-white items-center ring-greige ring-2 rounded-full p-2 hover:shadow-2xl transition duration-500 ease-in-out">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.5" stroke="#AA9B9A"
-         class="w-8 h-8"
+         class="w-5 h-5 lg:w-8 lg:h-8"
          viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
     </svg>
 
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.5" stroke="#AA9B9A" class="w-10 h-10"
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.5" stroke="#AA9B9A" class="w-7 h-7 lg:w-10 lg:h-10"
          viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
     </svg>
@@ -19,14 +19,15 @@
     <div id='menu' class="hidden bg-white text-brown absolute z-50 w-max top-2 right-6 rounded shadow p-5 flex flex-col items-start [&>*]:mt-2">
       <%= link_to "Accueil", root_path, class: 'tabnav xl:hidden' %>
       <%= link_to "Carte", menus_path, class: 'tabnav xl:hidden' %>
+      <%= link_to "Réserver", new_reservation_path, class: "tabnav xl:hidden" %>
       <%= link_to "Contact", contact_path, class: 'tabnav xl:hidden' %>
 
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <%= link_to "Admin", '/admin', class: 'tabnav' %>
+          <%= link_to "Admin", '/admin', class: 'tabnav text-start' %>
         <% end %>
         <%= link_to "Profil", edit_user_registration_path, class: 'tabnav' %>
-        <%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete },  class: 'tabnav text-left' %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: 'tabnav text-left' %>
 
       <% else %>
         <%= link_to "Connexion", new_user_session_path, class: 'tabnav' %>

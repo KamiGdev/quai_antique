@@ -18,10 +18,10 @@
 <body   class="<%= current_page?(root_path) ? 'body_bg_homepage' : 'body_bg_gradient' %>">
 <main class="flex flex-col justify-between h-[100vh]">
   <!-- Navbar-->
-  <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:px-16 [&>div]:items-center">
+  <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16">
     <div>
       <%= link_to "Carte", menus_path, class: 'hidden tabnav xl:block' %>
-      <%= link_to "Réserver", new_reservation_path, class: "tabnav" %>
+      <%= link_to "Réserver", new_reservation_path, class: "hidden tabnav xl:block" %>
     </div>
 
     <div>
@@ -30,9 +30,9 @@
       <%= render partial: 'layouts/menu_button' %>
     </div>
 
-    <p class="flex flex-col absolute left-1/2 translate-x-[-50%] font-extrabold items-center">
-      <%= link_to image_tag('logo.png'), root_path, class: "w-20" %>
-      <span class="text-xl font-['DancingScript'] font-extrabold">Quai Antique</span>
+    <p class="flex flex-col absolute font-extrabold items-center pl-5 lg:pl-0 lg:left-1/2 lg:translate-x-[-50%]">
+      <%= link_to image_tag('logo.png'), root_path, class: "w-16 lg:w-20" %>
+      <span class=" text-base lg:text-xl font-['DancingScript'] font-extrabold">Quai Antique</span>
     </p>
 
   </nav>
@@ -53,6 +53,7 @@
 
   <!-- Footer-->
   <%= render partial: 'static_pages/footer' %>
+
 </main>
 
 </body>
