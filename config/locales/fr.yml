@@ -1,0 +1,24 @@
+# https://stackoverflow.com/questions/10812774/how-can-i-translate-the-activerecord-attribute-name-in-rails-3-2
+fr:
+  activerecord:
+    models:
+      user: 'Utilisateur'
+
+
+    attributes:
+      # Translation in French within models
+      user:
+        firstname: 'Prénom'
+        lastname: 'Nom'
+        people_number: 'Nombre de personnes'
+        allergy: 'Allergies'
+
+      reservation:
+        lastname: "Nom"
+        phone_number: 'Numéro de téléphone'
+        people_number: 'Nombre de personnes'
+        allergy: 'Allergies'
+
+# Translation in French for attributes in show view
+  date: 'Date'
+  people_number: 'Nombre de personnes'

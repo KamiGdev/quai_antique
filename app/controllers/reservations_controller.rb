@@ -56,7 +56,7 @@ class ReservationsController < ApplicationController
       if @reservation.update(reservation_params)
         slot.reservation_id = @reservation.id
         slot.save!
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
+        format.html { redirect_to reservation_url(@reservation), notice: "Réservation effectuée avec succès." }
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit, status: :unprocessable_entity }

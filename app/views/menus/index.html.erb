@@ -1,14 +1,19 @@
-<%= link_to 'Toute la carte', '/menus' %>
-<%= link_to 'Entrées', '/menus?category=Entrée' %>
-<%= link_to 'Plats', '/menus?category=Plat' %>
-<%= link_to 'Desserts', '/menus?category=Dessert' %>
-<%= link_to 'Menus', '/menus?menu_only=true' %>
+<div class="grid grid-cols-5 gap-10 menu-button">
+  <%= link_to 'Toute la carte', '/menus' %>
+  <%= link_to 'Entrées', '/menus?category=Entrée' %>
+  <%= link_to 'Plats', '/menus?category=Plat' %>
+  <%= link_to 'Desserts', '/menus?category=Dessert' %>
+  <%= link_to 'Menus', '/menus?menu_only=true' %>
+</div>
 
 <%# Search Bar %>
+<div class="search">
+
 <%= form_with url: "/search", method: :get do |form| %>
-  <%= form.text_field :query %>
+  <%= form.text_field :query, placeholder: 'Tapez votre recherche ici' %>
   <%= form.submit "Rechercher" %>
 <% end %>
+</div>
 
 <% if @menus_only %>
   <%# Display only menus = formulas %>

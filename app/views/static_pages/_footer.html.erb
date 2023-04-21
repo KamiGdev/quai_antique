@@ -1,53 +1,46 @@
 <footer class="bg-greige py-4 px-8">
   <%# 3 content block %>
-  <div class="grid grid-cols-3 py-5 px-8 gap-8 justify-around">
+  <div class="grid grid-cols-3 justify-around py-2 px-1 gap-8  lg:py-5 lg:px-8 lg:gap-8">
 
-    <div class="flex flex-col text-white items-center mt-4">
-      <div>
+    <div class="flex flex-col md:items-center mt-4">
         <ul>
-          <li><h2 class="text-brown">Addresse :</h2></li>
-          <li class="text-white mt-3">23 rue des Champignons</li>
-          <li class="text-white">FR-74400 Chamonix-Mont-Blanc</li>
-          <li class="text-white">Téléphone : 04 50 53 12 34</li>
-          <li><%= link_to "Contact", contact_path, class: "underline hover:font-bold" %></li>
+          <li><h3 class="text-center md:text-start text-brown font-bold ">Addresse</h3></li>
+          <li class="text-center md:text-start text-white mt-3">23 rue des Champignons</li>
+          <li class="text-center md:text-start text-white">FR-74400 Chamonix-Mont-Blanc</li>
+          <li class="text-center md:text-start text-white">Téléphone : 04 50 53 12 34</li>
+          <li><%= link_to "Contact", contact_path, class: "text-center md:text-start underline hover:font-bold text-white" %></li>
         </ul>
-
-      </div>
     </div>
 
     <div class="flex flex-col items-center text-center text-zinc-950 ">
       <%= image_tag 'logo.png', class: 'w-36' %>
       <span class="text-2xl text-white font-DancingScript font-extrabold">Quai Antique</span>
-      <span class="text-2xl capitalize font-bold mt-2">Restaurant d'alpage gastronomique</span>
-      <p class="text-xl">Des saveurs authentiques et raffinées pour émerveiller vos sens.</p>
+      <h3 class="capitalize font-bold mt-2">Restaurant d'alpage gastronomique</h3>
+      <h4 class="hidden md:block">Des saveurs authentiques et raffinées pour émerveiller vos sens.</h4>
       <br>
     </div>
 
-    <div class="flex flex-col items-center mt-4 text-white">
-      <div>
-        <h2 class="text-brown">Horaires d'ouverture</h2>
+    <div class="flex flex-col mt-4 md:items-center">
+      <h3 class="text-brown font-bold text-white text-center md:text-start">Horaires d'ouverture</h3>
+      <h4 class="mt-3 font-bold text-white text-center md:text-start">Du mardi au dimanche inclus</h4>
 
-        <p class="mt-3">Du mardi au dimanche inclus</p>
+      <table class="table mt-1">
+        <tbody class="font-weight-normal">
 
-        <table class="table text-center">
+        <tr>
+          <td>MIDI</td>
+          <td class="block"><%= Schedule.first.lunch_starts_at.to_s(:time) %>
+            - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
+        </tr>
+        <tr>
+          <td>SOIR</td>
+          <td class="block"><%= Schedule.first.dinner_starts_at.to_s(:time) %>
+            - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
+        </tr>
 
-          <tbody class="font-weight-normal">
+        </tbody>
+      </table>
 
-          <tr>
-            <td>MIDI</td>
-            <td><%= Schedule.first.lunch_starts_at.to_s(:time) %>
-              - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
-          </tr>
-          <tr>
-            <td>SOIR</td>
-            <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
-              - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
-          </tr>
-
-          </tbody>
-        </table>
-
-      </div>
     </div>
 
   </div>

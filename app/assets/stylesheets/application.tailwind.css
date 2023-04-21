@@ -18,9 +18,8 @@
     font-weight: bolder;
 }
 
-/* Body background color */
-body {
-    @apply bg-gradient-to-r from-whitegray via-clearbrown;
+.body_bg_gradient {
+    @apply bg-gradient-to-r from-whitegray via-clearbrown to-slate;
 }
 
 .body_bg_homepage {
@@ -31,37 +30,30 @@ body {
 /* h & p customs */
 @layer base {
     h1 {
-        @apply text-7xl;
+        @apply text-5xl;
     }
 
     h2 {
-        @apply text-4xl;
-    }
-
-    h3 {
         @apply text-3xl;
     }
 
+    h3 {
+        @apply sm:text-base md:text-xl lg:text-2xl;
+    }
+
+    h4 {
+        @apply sm:text-sm md:text-base lg:text-xl;
+    }
     p {
-        @apply text-2xl;
+        @apply sm:text-sm md:text-base;
     }
 
 }
 
 
-/* Customization forms */
+/* Devise customization forms */
 #devise {
     @apply flex flex-col items-center pt-6;
-}
-
-
-input:not([type=checkbox]) {
-    @apply block shadow rounded-md border border-slate outline-none px-3 py-2 mb-4 w-full focus:ring-slate transition focus:outline-none;
-}
-
-
-input[type=checkbox] {
-    @apply rounded;
 }
 
 #devise button, input[type=submit] {
@@ -72,20 +64,47 @@ input[type=checkbox] {
     @apply underline;
 }
 
+.field {
+    @apply flex flex-col items-start;
+}
 
-/* Carousel Swiper js - target the active bullet */
+
+/* Customization forms, all types */
+input:not([type=checkbox]) {
+    @apply block shadow rounded-md border border-slate outline-none px-3 py-2 mb-4 w-full focus:ring-slate transition focus:outline-none;
+}
+
+
+input[type=checkbox] {
+    @apply rounded;
+}
+
+label {
+    @apply block text-left;
+}
+
+
+form {
+    @apply w-[80vw] md:w-[30vw] flex flex-col items-stretch;
+}
+
+
+
+
+
+/* Home page, Carousel Swiper js - target the active bullet */
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: white;
     opacity: 1;
 }
 
-/*  Carousel Swiper js - target all bullets */
+/* Home page, Carousel Swiper js - target all bullets */
 .swiper-pagination-bullet {
     background-color: #60473B;
     opacity: 1;
 }
 
-/*  Carousel Swiper js - target the button next and prev. */
+/* Home page, Carousel Swiper js - target the button next and prev. */
 .swiper-button-next {
     --swiper-navigation-color: #F5F5F5;
 }
@@ -93,3 +112,27 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .swiper-button-prev {
     --swiper-navigation-color: #F5F5F5;
 }
+
+
+
+/* Menu buttons */
+.menu-button a {
+    background: #F5F5F5;
+    border-radius: 0.5rem;
+    padding: 4px;
+}
+
+.menu-button {
+    padding: 16px;
+}
+
+.search input[type=submit] {
+    margin: 0px;
+}
+
+
+.search {
+    margin-top: 22px;
+}
+
+

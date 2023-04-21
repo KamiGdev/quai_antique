@@ -10,15 +10,16 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Date:</strong>
+    <strong class="block font-medium mb-1"><%= t :date %>:</strong>
     <%= reservation.slot.date %> à
     <%= reservation.slot.time.strftime("%H:%M") %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">People number:</strong>
+    <strong class="block font-medium mb-1"><%= t :people_number %>:</strong>
     <%= reservation.people_number %>
   </p>
+
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Allergy:</strong>
