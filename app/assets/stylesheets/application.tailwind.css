@@ -115,8 +115,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
 
-/* Menu buttons */
-.menu-button a {
+/* Menu Card buttons */
+.menu-card-button a {
     background: #F5F5F5;
     border-radius: 0.5rem;
     padding: 4px;
@@ -124,14 +124,16 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 
 
-.menu-button {
+.menu-card-button {
     padding: 16px;
 }
 
+
+
+/* Search bar style */
 .search input[type=submit] {
     margin: 0px;
 }
-
 
 .search {
     margin-top: 22px;
