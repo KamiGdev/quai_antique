@@ -1,6 +1,6 @@
 <footer class="bg-greige py-4 px-8">
   <%# 3 content block %>
-  <div class="grid grid-cols-3 justify-around py-2 px-1 gap-8  lg:py-5 lg:px-8 lg:gap-8">
+  <div class="grid grid-cols-3 justify-around py-2 px-1 gap-8 lg:py-5 lg:px-8 lg:gap-8">
 
     <div class="flex flex-col md:items-center mt-4">
         <ul>
@@ -21,20 +21,20 @@
     </div>
 
     <div class="flex flex-col mt-4 md:items-center">
-      <h3 class="text-brown font-bold text-white text-center md:text-start">Horaires d'ouverture</h3>
+      <h3 class="text-brown font-bold text-brown text-center md:text-start">Horaires d'ouverture</h3>
       <h4 class="mt-3 font-bold text-white text-center md:text-start">Du mardi au dimanche inclus</h4>
 
       <table class="table mt-1">
-        <tbody class="font-weight-normal">
+        <tbody class="font-weight-normal text-white">
 
-        <tr>
-          <td>MIDI</td>
-          <td class="block"><%= Schedule.first.lunch_starts_at.to_s(:time) %>
-            - <%= Schedule.first.lunch_ends_at.to_s(:time) %> </td>
+        <tr class="flex flex-col items-center text-center sm:flex-row">
+          <td class="sm:pr-8">MIDI</td>
+          <td><%= Schedule.first.lunch_starts_at.to_s(:time) %>
+            - <%= Schedule.first.lunch_ends_at.to_s(:time) %></td>
         </tr>
-        <tr>
-          <td>SOIR</td>
-          <td class="block"><%= Schedule.first.dinner_starts_at.to_s(:time) %>
+        <tr class="flex flex-col items-center text-center sm:flex-row">
+          <td class="sm:pr-8">SOIR</td>
+          <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
             - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
         </tr>
 

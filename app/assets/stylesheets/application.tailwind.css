@@ -13,11 +13,7 @@
 */
 
 
-/* Navbar */
-.tabnav:hover {
-    font-weight: bolder;
-}
-
+/* body backgrounds */
 .body_bg_gradient {
     @apply bg-gradient-to-r from-whitegray via-clearbrown to-slate;
 }
@@ -25,6 +21,15 @@
 .body_bg_homepage {
     background-color: #F5F5F5;
 }
+
+
+
+/* Navbar */
+.tabnav:hover {
+    font-weight: bolder;
+}
+
+
 
 
 /* h & p customs */
@@ -123,7 +128,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     width: auto;
 }
 
-
 .menu-card-button {
     padding: 16px;
 }
@@ -140,3 +144,17 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 
 
+
+/* Video background on home page */
+.home_video {
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    object-position: center bottom;
+    top: 0;
+    left:0;
+    z-index: -2;
+}
