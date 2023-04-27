@@ -104,25 +104,42 @@ class ReservationsController < ApplicationController
     taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
     # ["10:30", "10:15"]
 
-    @available_slots = []
+    @morning_slots = []
     (11..14).step(0.25).each do |hour|
       # lunch hours
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
       slot = "#{hour_s}:#{minute_s}" # 10:15
 
-      @available_slots << slot unless taken_slots.include? slot
+      @morning_slots << slot unless taken_slots.include? slot
     end
-
+    @evening_slots = []
     (19..22).step(0.25).each do |hour|
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
       slot = "#{hour_s}:#{minute_s}" # 10:15
 
-      @available_slots << slot unless taken_slots.include? slot
+      @evening_slots << slot unless taken_slots.include? slot
     end
 
     puts taken_slots
 
   end
 end
+
+
+
+=begin
+class Reservation < ApplicationRecord
+  max_capacity = 30
+
+validate :check_capacity, on: :create
+
+def check_capacity
+if Reservation.people_number.count >= max_capacity
+errors.add(:base, "Désolé, notre établissement est complet, merci de nous contacter")
+    end
+  end
+end
+=end
+

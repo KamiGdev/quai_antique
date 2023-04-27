@@ -1,5 +1,5 @@
-<h1 class="pb-6">Notre carte</h1>
-<div class="menu-card-button grid grid-cols-3 md:grid-cols-5 gap-10 justify-center">
+<h1 class="pb-6 font-DancingScript">Notre carte</h1>
+<div class="menu-card-button grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 justify-center">
   <%= link_to 'Toute la carte', '/menus' %>
   <%= link_to 'Entrées', '/menus?category=Entrée' %>
   <%= link_to 'Plats', '/menus?category=Plat' %>
@@ -8,7 +8,7 @@
 </div>
 
 <%# Search Bar %>
-<div class="search">
+<div class="search mb-4">
 <%= form_with url: "/search", method: :get do |form| %>
   <%= form.text_field :query, placeholder: 'Tapez votre recherche ici' %>
   <%= form.submit "Rechercher" %>
@@ -17,7 +17,7 @@
 
 <% if @menus_only %>
   <%# Display only menus = formulas %>
-  <div class="grid grid-cols-2 gap-6">
+  <div class="grid grid-cols-2 gap-6 mb-4">
     <% @menus.each do |menu| %>
       <%= link_to "/menus/#{menu.id}" do %>
         <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
@@ -27,22 +27,22 @@
   </div>
 <% else %>
 
-  <%# If we do not choose starters, main courses or desserts %>
+  <%# If we do not choose dishes : starters, main courses or desserts %>
   <% if !params[:category] %>
-    <%# Alors affichage Menus %>
-    <div class="grid grid-cols-2 gap-6">
+    <%# Then display the menus = formulas %>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-12">
       <% @menus.each do |menu| %>
         <%= link_to "/menus/#{menu.id}" do %>
           <%= render partial: 'menu', locals: { menu: menu, show_details: false } %>
         <% end %>
       <% end %>
-      <hr>
+
     </div>
   <% end %>
 
 
-<%# With main courses only %>
-  <div class="grid grid-cols-3 gap-6">
+<%# With dishes = starters, main courses, desserts %>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3">
     <% @dishes.each do |dish| %>
       <%= link_to "/dishes/#{dish.id}" do %>
         <%= render partial: 'dishes/dish', locals: { dish: dish, show_details: false } %>

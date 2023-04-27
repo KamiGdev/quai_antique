@@ -54,6 +54,7 @@
 
 
 
+<%# Turbo script for the date refresh %>
 <script type="text/javascript" charset="utf-8">
     function onChange(event) {
         // On récupère le champs
@@ -65,12 +66,14 @@
         // On remplace avec la nouvelle valeur
     }
 
+
+    <%# Alert message script when the phone number is not typed correctly %>
     const phone_number = document.getElementById('reservation_phone_number')
 
     let el
     phone_number.addEventListener('input', (e) => {
         const value = e.target.value
-        if(!value.match(/^\+?[0-9]{10,50}$/)) {
+        if (!value.match(/^\+?[0-9]{10,50}$/)) {
             if (el) return
 
             e.target.style.marginBottom = 0
@@ -90,3 +93,19 @@
         }
     })
 </script>
+
+
+
+
+
+
+max_capacity = 30
+
+validate :check_capacity, on: :create
+
+def check_capacity
+if Reservation.people_number.count >= max_capacity
+errors.add(:base, "Désolé, notre établissement est complet, merci de nous contacter")
+end
+end
+end

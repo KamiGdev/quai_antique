@@ -1,3 +1,4 @@
 <div id='slots'>
-  <%= select_tag(:slot, options_for_select(@available_slots)) %>
+  <%= select_tag(:slot, options_for_select(@morning_slots)) %>
+  <%= select_tag(:slot, options_for_select(@evening_slots)) %>
 </div>

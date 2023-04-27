@@ -4,11 +4,11 @@
 
     <div class="flex flex-col md:items-center mt-4">
         <ul>
-          <li><h3 class="text-center md:text-start text-brown font-bold ">Addresse</h3></li>
+          <li><h3 class="text-center md:text-start text-brown font-bold ">Adresse</h3></li>
           <li class="text-center md:text-start text-white mt-3">23 rue des Champignons</li>
           <li class="text-center md:text-start text-white">FR-74400 Chamonix-Mont-Blanc</li>
           <li class="text-center md:text-start text-white">Téléphone : 04 50 53 12 34</li>
-          <li><%= link_to "Contact", contact_path, class: "text-center md:text-start underline hover:font-bold text-white" %></li>
+          <li class="text-center md:text-start"><%= link_to "Contact", contact_path, class: "underline hover:font-bold text-white" %></li>
         </ul>
     </div>
 
@@ -29,13 +29,13 @@
 
         <tr class="flex flex-col items-center text-center sm:flex-row">
           <td class="sm:pr-8">MIDI</td>
-          <td><%= Schedule.first.lunch_starts_at.to_s(:time) %>
-            - <%= Schedule.first.lunch_ends_at.to_s(:time) %></td>
+          <td><%= Schedule.last.lunch_starts_at.to_s(:time) %>
+            - <%= Schedule.last.lunch_ends_at.to_s(:time) %></td>
         </tr>
         <tr class="flex flex-col items-center text-center sm:flex-row">
           <td class="sm:pr-8">SOIR</td>
-          <td><%= Schedule.first.dinner_starts_at.to_s(:time) %>
-            - <%= Schedule.first.dinner_ends_at.to_s(:time) %> </td>
+          <td><%= Schedule.last.dinner_starts_at.to_s(:time) %>
+            - <%= Schedule.last.dinner_ends_at.to_s(:time) %> </td>
         </tr>
 
         </tbody>
