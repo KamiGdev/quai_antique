@@ -26,21 +26,23 @@
     <%= form.text_field :phone_number, required: true, pattern: "/^\+?[0-9]{10,50}$/", type: 'tel', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+
+  <div class="my-5">
+    <%= form.label :people_number %>
+    <%= form.number_field :people_number, id: 'people', oninput: 'onChange(event)', required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
   <%= label_tag :date, 'Sélectionner une date' %>
-  <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)' %>
+  <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)', id: 'date', class:'!mb-1' %>
 
   <%# If I am in an form's edition view %>
   <% if reservation.slot %>
-    <h3>Heure initiale: <%= reservation.slot.time.strftime("%H:%M") %></h3>
+    <p class="font-extrabold ">Heure initiale: <%= reservation.slot.time.strftime("%H:%M") %></p>
   <% end %>
 
   <%= render partial: 'slots' %>
 
 
-  <div class="my-5">
-    <%= form.label :people_number %>
-    <%= form.number_field :people_number, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
   <div class="my-5">
     <%= form.label :allergy %>
@@ -57,10 +59,13 @@
 <%# Turbo script for the date refresh %>
 <script type="text/javascript" charset="utf-8">
     function onChange(event) {
+        const people_el = document.getElementById('people')
+        const date_el = document.getElementById('date')
         // On récupère le champs
-        const value = event.target.value
+        const people = people_el.value
+        const date = date_el.value
         // On envoie la valeur au serveur
-        fetch('/reservations/refresh_date?date=' + value)
+        fetch('/reservations/refresh_date?date=' + date + '&people_number=' + people)
             .then(res => res.text())
             .then(html => Turbo.renderStreamMessage(html))
         // On remplace avec la nouvelle valeur
@@ -98,14 +103,3 @@
 
 
 
-
-max_capacity = 30
-
-validate :check_capacity, on: :create
-
-def check_capacity
-if Reservation.people_number.count >= max_capacity
-errors.add(:base, "Désolé, notre établissement est complet, merci de nous contacter")
-end
-end
-end

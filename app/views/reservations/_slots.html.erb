@@ -1,4 +1,9 @@
 <div id='slots'>
-  <%= select_tag(:slot, options_for_select(@morning_slots)) %>
-  <%= select_tag(:slot, options_for_select(@evening_slots)) %>
+  <% if @available_slots.empty? && @dinner_slots.empty? %>
+    <p class="text-red-500">Désolé, notre établissement est complet, veuillez nous contacter.</p>
+  <% else %>
+    <%= select_tag(:slot, options_for_select(@available_slots)) %>
+    <%= select_tag(:slot, options_for_select(@dinner_slots)) %>
+  <% end %>
+
 </div>

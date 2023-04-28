@@ -10,14 +10,15 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t :date %>:</strong>
-    <%= reservation.slot.date %> à
+    <strong class="block font-medium b-1"><%= t :date %>:</strong>
+    <span class="font-bold"><%= reservation.slot.date %> à
     <%= reservation.slot.time.strftime("%H:%M") %>
+    </span>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= t :people_number %>:</strong>
-    <%= reservation.people_number %>
+    <span class="font-bold"><%= reservation.people_number %></span>
   </p>
 
 
@@ -27,8 +28,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this reservation", reservation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this reservation', edit_reservation_path(reservation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this reservation", reservation, class: "mb-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this reservation', edit_reservation_path(reservation), class: "mt-2 rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

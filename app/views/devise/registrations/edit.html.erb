@@ -1,9 +1,9 @@
-<h1 class="mb-5">Edition du profil</h1>
+<h1 class="pt-12">Edition du profil</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field mt-4">
+  <div class="field mt-8">
     <%= f.label :firstname %><br/>
     <%= f.text_field :firstname, required: true, autocomplete: "firstname" %>
   </div>
@@ -35,7 +35,7 @@
   <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "new-password", minlength: 8, class:'!mb-0' %>
-    <p class="mb-2 break-word text-left text-brown">Le mot de passe doit avoir une longueur de 8 à 12 caractères</p>
+    <p class="mb-2 break-words text-left text-whitegray font-bold">Le mot de passe doit avoir une longueur de 8 à 12 caractères</p>
   </div>
 
   <div class="field mt-4">
@@ -44,7 +44,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %><i class="text-brown text-left">(Saisissez votre mot de passe actuel pour confirmer les changements)</i><br/>
+    <%= f.label :current_password %><i class="text-left text-whitegray font-bold">(Saisissez votre mot de passe actuel pour confirmer les changements)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -57,4 +57,4 @@
 
 <div><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:'underline' %></div>
 
-<%= link_to "Retour", :back, class:'underline' %>
+<%= link_to "Retour", :back, class:'underline pb-12' %>

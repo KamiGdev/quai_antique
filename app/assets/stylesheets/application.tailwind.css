@@ -59,7 +59,7 @@
 
 /* Devise customization forms */
 #devise {
-    @apply flex flex-col items-center pt-6;
+    @apply flex flex-col items-center py-12;
 }
 
 #devise button, input[type=submit] {
