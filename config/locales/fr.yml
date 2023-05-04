@@ -2,23 +2,82 @@
 fr:
   activerecord:
     models:
-      user: 'Utilisateur'
+      user: 'Client'
 
 
     attributes:
-      # Translation in French within models
+      # Translation of attributes in French within models
       user:
         firstname: 'Prénom'
         lastname: 'Nom'
+        email: 'Email'
+        password: 'Password'
         people_number: 'Nombre de personnes'
         allergy: 'Allergies'
+
 
       reservation:
         lastname: "Nom"
+        email: 'Email'
         phone_number: 'Numéro de téléphone'
         people_number: 'Nombre de personnes'
-        allergy: 'Allergies'
+        allergy: 'Allergie(s)'
 
-# Translation in French for attributes in show view
+
+
+# Translation in French for attributes in Show view with "t :attribute" in the html.erb file
+  user: 'Client'
+  phone_number: 'Numéro de téléphone'
   date: 'Date'
   people_number: 'Nombre de personnes'
+  allergy: 'Allergie(s)'
+
+
+  # Helpers submit french translation within models
+  helpers:
+    submit:
+      user:
+        create: 'Se connecter'
+        update: 'Modifier son profil'
+
+      reservation:
+        create: 'Créer sa %{model}'
+        update: 'Modifier sa %{model}'
+
+
+  # French translation for global form actions within controller and method
+  global:
+    forms:
+      sessions:
+        new:
+          submit: 'Se connecter'
+
+      registrations:
+        new:
+          submit: "S'inscrire"
+
+        edit:
+            submit: "Modifier son profil"
+            cancel_my_account: 'Supprimer mon compte'
+            back: 'Retour'
+
+
+      reservations:
+        new:
+          back_to_reservations: 'Historique des réservations'
+
+        edit:
+          show_this_reservation: 'Afficher cette réservation'
+          back_to_reservations: 'Historique des réservations'
+
+        show:
+          edit_this_reservation: 'Modifier cette réservation'
+          destroy_this_reservation: 'Supprimer cette réservation'
+          back_to_reservations: 'Historique des réservations'
+
+
+
+
+
+
+

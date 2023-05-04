@@ -129,7 +129,7 @@ class ReservationsController < ApplicationController
       end
     end
 
-    if sum + people_number > 31
+    if sum + people_number > 30
       return
     end
 
@@ -153,7 +153,7 @@ class ReservationsController < ApplicationController
       end
     end
 
-      if sum + people_number > 31
+      if sum + people_number > 30
         return
       end
 

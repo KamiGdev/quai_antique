@@ -31,3 +31,43 @@
 
 en:
   hello: "Hello world"
+
+  # UK translation for global form actions within controller and method
+  global:
+    forms:
+      sessions:
+        new:
+          submit: 'Log in'
+
+      registrations:
+        new:
+          submit: 'Sign up'
+
+        edit:
+          submit: "Update"
+          cancel_my_account: 'Cancel my account'
+          back: 'Back'
+
+
+      reservations:
+        new:
+          back_to_reservations: 'Booking history'
+
+        edit:
+          show_this_reservation: 'Show this reservation'
+          back_to_reservations: 'Booking history'
+
+        show:
+          edit_this_reservation: 'Edit this reservation'
+          destroy_this_reservation: 'Cancel this booking'
+          back_to_reservations: 'Booking history'
+
+
+
+
+
+
+
+
+
+

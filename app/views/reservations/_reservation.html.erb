@@ -1,11 +1,11 @@
 <div id="<%= dom_id reservation %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
+    <strong class="block font-medium mb-1"><%= t :user %>:</strong>
     <%= reservation.email %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Phone number:</strong>
+    <strong class="block font-medium mb-1"><%= t :phone_number %>:</strong>
     <%= reservation.phone_number %>
   </p>
 
@@ -23,7 +23,7 @@
 
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Allergy:</strong>
+    <strong class="block font-medium mb-1"><%= t :allergy %>:</strong>
     <%= reservation.allergy %>
   </p>
 
