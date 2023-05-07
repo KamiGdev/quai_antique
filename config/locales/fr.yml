@@ -25,6 +25,7 @@ fr:
 
 
 
+
 # Translation in French for attributes in Show view with "t :attribute" in the html.erb file
   user: 'Client'
   phone_number: 'Numéro de téléphone'

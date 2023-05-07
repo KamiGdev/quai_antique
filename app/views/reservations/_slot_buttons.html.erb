@@ -1,0 +1,8 @@
+<div class="mt-4">
+  <span class="text-white font-extrabold "><%= title %></span>
+  <div class="flex flex-wrap justify-center">
+    <% slots.each do |slot| %>
+      <%= link_to(slot, "/select_slot/#{slot}", {class: "p-2 m-2 rounded-xl hover:bg-slate transition-all #{slot == @selected_slot ? 'bg-whitegray text-brown font-bold' : 'bg-brown text-white' }" }) %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
-  before_action :set_available_slots, only: %i[ new create edit update ]
+  before_action :set_available_slots, only: %i[ new create edit update select_slot ]
 
   # GET /reservations or /reservations.json
   def index
@@ -20,25 +20,27 @@ class ReservationsController < ApplicationController
   # GET /reservations/1/edit
   def edit
     @date = @reservation.slot.date
+    @selected_slot = @reservation.slot.time.strftime("%H:%M")
   end
 
   def refresh_date
     @date = Date.parse(params[:date])
     set_available_slots
-    # init_new
-    # render :new
   end
 
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
     slot = Slot.new date: Date.parse(params[:date]), time: params[:slot]
+    @reservation.slot = slot
+    puts 'bonjour'
+    puts slot
 
     respond_to do |format|
       if @reservation.save
         slot.reservation_id = @reservation.id
         slot.save!
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
+        format.html { redirect_to reservation_url(@reservation), notice: "Réservation effectuée avec succès." }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -73,6 +75,11 @@ class ReservationsController < ApplicationController
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+
+  def select_slot
+    @selected_slot = params[:slot]
   end
 
   private
@@ -115,7 +122,7 @@ class ReservationsController < ApplicationController
     # end
 
 
-    @available_slots = []
+    @lunch_slots = []
     @dinner_slots = []
 
     people_number =  params[:people_number].to_i || 0
@@ -140,7 +147,7 @@ class ReservationsController < ApplicationController
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
       slot = "#{hour_s}:#{minute_s}" # 10:15
-      @available_slots << slot unless taken_slots.include? slot
+      @lunch_slots << slot unless taken_slots.include? slot
 
     end
 

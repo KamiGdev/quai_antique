@@ -43,7 +43,13 @@
 }
 
 .body_bg_homepage {
-    background-color: #F5F5F5;
+    background-color: #DDC6B4;
+}
+
+
+/* Background image under text on home page */
+.background-image {
+    background-image: linear-gradient(112.5deg, rgb(245,245,245) 0%, rgb(245,245,245) 10%,rgb(195, 195, 195) 10%, rgb(195, 195, 195) 53%,rgb(176, 176, 176) 53%, rgb(176, 176, 176) 55%,rgb(157, 157, 157) 55%, rgb(157, 157, 157) 60%,rgb(137,137,137) 60%, rgb(137,137,137) 88%,rgb(118, 118, 118) 88%, rgb(118, 118, 118) 91%,rgb(99, 99, 99) 91%, rgb(99, 99, 99) 100%),linear-gradient(157.5deg, rgb(245,245,245) 0%, rgb(245,245,245) 10%,rgb(195, 195, 195) 10%, rgb(195, 195, 195) 53%,rgb(176, 176, 176) 53%, rgb(176, 176, 176) 55%,rgb(157, 157, 157) 55%, rgb(157, 157, 157) 60%,rgb(137,137,137) 60%, rgb(137,137,137) 88%,rgb(118, 118, 118) 88%, rgb(118, 118, 118) 91%,rgb(99, 99, 99) 91%, rgb(99, 99, 99) 100%),linear-gradient(135deg, rgb(245,245,245) 0%, rgb(245,245,245) 10%,rgb(195, 195, 195) 10%, rgb(195, 195, 195) 53%,rgb(176, 176, 176) 53%, rgb(176, 176, 176) 55%,rgb(157, 157, 157) 55%, rgb(157, 157, 157) 60%,rgb(137,137,137) 60%, rgb(137,137,137) 88%,rgb(118, 118, 118) 88%, rgb(118, 118, 118) 91%,rgb(99, 99, 99) 91%, rgb(99, 99, 99) 100%),linear-gradient(90deg, rgb(195, 195, 195),rgb(228, 228, 228)); background-blend-mode:overlay,overlay,overlay,normal;
 }
 
 
@@ -121,6 +127,23 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
 
+
+
+/* Video background on home page */
+.home_video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    top: 0;
+    left:0;
+    z-index: -1;
+}
+
+
+
+
 /* Menu Card buttons */
 .menu-card-button a {
     background: #F5F5F5;
@@ -144,14 +167,3 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     margin-top: 22px;
 }
 
-
-
-/* Video background on home page */
-.home_video {
-    position: absolute;
-    object-fit: cover;
-    object-position: center bottom;
-    top: 0;
-    left:0;
-    z-index: 1;
-}

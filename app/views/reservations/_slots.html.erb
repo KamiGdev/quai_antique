@@ -1,9 +1,11 @@
-<div id='slots'>
-  <% if @available_slots.empty? && @dinner_slots.empty? %>
-    <p class="text-red-500">Désolé, notre établissement est complet, veuillez nous contacter.</p>
-  <% else %>
-    <%= select_tag(:slot, options_for_select(@available_slots)) %>
-    <%= select_tag(:slot, options_for_select(@dinner_slots)) %>
-  <% end %>
-
-</div>
+<%= turbo_frame_tag :slots do %>
+  <div class="flex flex-col items-center">
+    <% if @lunch_slots.empty? && @dinner_slots.empty? %>
+      <p class="text-red-500">Désolé, notre établissement est complet, veuillez nous contacter.</p>
+    <% else %>
+      <%= render partial: 'slot_buttons', locals: {slots:@lunch_slots, title:'Midi'} %>
+      <%= render partial: 'slot_buttons', locals: {slots:@dinner_slots, title: 'Soir'} %>
+    <% end %>
+    <%= hidden_field_tag :slot, @selected_slot %>
+  </div>
+<% end %>

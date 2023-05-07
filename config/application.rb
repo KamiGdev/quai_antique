@@ -20,5 +20,6 @@ module QuaiAntique
     # config.eager_load_paths << Rails.root.join("extras")
     I18n.available_locales = [:fr, :en]
     I18n.default_locale = :fr
+    I18n.fallbacks = [:en]
   end
 end

@@ -35,10 +35,7 @@
   <%= label_tag :date, 'Sélectionner une date' %>
   <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)', id: 'date', class:'!mb-1' %>
 
-  <%# If I am in an form's edition view %>
-  <% if reservation.slot %>
-    <p class="font-extrabold ">Heure initiale: <%= reservation.slot.time.strftime("%H:%M") %></p>
-  <% end %>
+
 
   <%= render partial: 'slots' %>
 
