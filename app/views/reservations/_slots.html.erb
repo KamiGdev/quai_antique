@@ -1,9 +1,22 @@
-<div id='slots'>
-  <% if @available_slots.empty? && @dinner_slots.empty? %>
+<%= turbo_frame_tag :slots do %>
+  <% if @lunch_slots.empty? && @dinner_slots.empty? %>
     <p class="text-red-500">Désolé, notre établissement est complet, veuillez nous contacter.</p>
   <% else %>
-    <%= select_tag(:slot, options_for_select(@available_slots)) %>
-    <%= select_tag(:slot, options_for_select(@dinner_slots)) %>
+    <%#= select_tag(:slot, options_for_select(@lunch_slots)) %>
+    <%#= select_tag(:slot, options_for_select(@dinner_slots)) %>
+    <% @lunch_slots.each do |slot| %>
+      <%= link_to(slot, "/select_slot/#{slot}")  %>
+     <% if @selected_slot == slot %>
+      (selected)
+      <% end %>
+    <% end %>
+    Bonjour
+    <% @dinner_slots.each do |slot| %>
+      <%= link_to(slot, "/select_slot/#{slot}")  %>
+      <% if @selected_slot == slot %>
+        (selected)
+      <% end %>
+    <% end %>
   <% end %>
-
-</div>
+<%= hidden_field_tag :slot, @selected_slot %>
+<% end %>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/select_slot/:slot', to: "reservations#select_slot"
+
   devise_for :users
   mount Avo::Engine, at: Avo.configuration.root_path
 

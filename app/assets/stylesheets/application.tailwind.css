@@ -121,6 +121,23 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
 
+
+
+/* Video background on home page */
+.home_video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    top: 0;
+    left:0;
+    z-index: -1;
+}
+
+
+
+
 /* Menu Card buttons */
 .menu-card-button a {
     background: #F5F5F5;
@@ -144,14 +161,3 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     margin-top: 22px;
 }
 
-
-
-/* Video background on home page */
-.home_video {
-    position: absolute;
-    object-fit: cover;
-    object-position: center bottom;
-    top: 0;
-    left:0;
-    z-index: 1;
-}

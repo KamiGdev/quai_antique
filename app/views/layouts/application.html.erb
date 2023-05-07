@@ -17,9 +17,9 @@
 
 <body class="<%= current_page?(root_path) ? 'body_bg_homepage' : 'body_bg_gradient' %>">
 
-<main class="flex flex-col justify-between h-[100vh]">
+<main class="relative flex flex-col justify-between h-[100vh]">
   <!-- Navbar-->
-  <nav class="relative w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16">
+  <nav class="fixed h-24 top-0 z-50 w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16">
     <div>
       <%= link_to "Carte", menus_path, class: 'hidden tabnav xl:block' %>
       <%= link_to "Réserver", new_reservation_path, class: "hidden tabnav xl:block" %>
@@ -38,16 +38,20 @@
 
   </nav>
 
-  <div class="flex flex-col items-center text-center">
+  <div class="relative flex flex-col items-center text-center">
+    <div class="fixed z-50 top-28">
     <% if notice.present? %>
-      <p class="mt-6 py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
     <% if alert.present? %>
-      <p class="mt-6 py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+      <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
     <% end %>
+    </div>
 
+    <div class="pt-24">
     <%= yield %>
+    </div>
   </div>
 
   <!-- Footer-->
