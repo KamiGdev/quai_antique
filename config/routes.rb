@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   get '/contact', to: "contact#index"
   post '/contact', to: "contact#create"
 
-  get '/about', to: "static_pages#about"
   root "static_pages#home"
 end

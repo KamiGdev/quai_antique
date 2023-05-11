@@ -22,7 +22,7 @@ class ReservationsTest < ApplicationSystemTestCase
     fill_in "User", with: @reservation.user_id
     click_on "Create Reservation"
 
-    assert_text "Reservation was successfully created"
+    assert_text "Merci, votre réservation a été prise en compte. A bientôt !"
     click_on "Back"
   end
 
@@ -38,7 +38,7 @@ class ReservationsTest < ApplicationSystemTestCase
     fill_in "User", with: @reservation.user_id
     click_on "Update Reservation"
 
-    assert_text "Reservation was successfully updated"
+    assert_text "La réservation a été modifiée."
     click_on "Back"
   end
 
@@ -46,6 +46,6 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservation_url(@reservation)
     click_on "Destroy this reservation", match: :first
 
-    assert_text "Reservation was successfully destroyed"
+    assert_text "La réservation a été supprimée."
   end
 end

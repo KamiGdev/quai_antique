@@ -1,19 +1,23 @@
-<div class="flex flex-col my-4 border border-clearbrown shadow rounded-2xl overflow-hidden">
-  <% if dish.illustration.attached? %>
-    <%= image_tag url_for(dish.illustration), class: 'h-[250px] object-cover mb-2' %>
-  <% end %>
+<div class="px-8">
 
-  <div class="p-4">
-    <p class="mt-2 font-DancingScript text-2xl"><%= dish.title %>
-      <% if dish.bestoff? %>
-        <span>⭐</span>
-      <% end %>
-    </p>
-    <p class="mt-2"><%= dish.subtitle %></p>
-    <p class="mt-2 text-whitegray"><%= dish.price.to_i %> €</p>
+  <div class="flex flex-col my-4 border border-clearbrown shadow rounded-2xl overflow-hidden">
+    <% if dish.illustration.attached? %>
+      <%= image_tag url_for(dish.illustration), class: 'h-[250px] object-cover overflow-hidden mb-2' %>
+    <% end %>
+
+    <div class="p-4">
+      <p class="mt-2 font-DancingScript text-2xl"><%= dish.title %>
+        <% if dish.bestoff? %>
+          <span>⭐</span>
+        <% end %>
+      </p>
+      <p class="mt-2"><%= dish.subtitle %></p>
+      <p class="mt-2 text-xl text-white font-extrabold"><%= dish.price.to_i %> €</p>
+    </div>
+
+    <% if show_details === true %>
+      <p class="mt-2"><%= dish.description %></p>
+    <% end %>
   </div>
 
-  <% if show_details === true %>
-    <p class="mt-2"><%= dish.description %></p>
-  <% end %>
 </div>

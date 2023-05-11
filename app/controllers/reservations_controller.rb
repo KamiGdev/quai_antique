@@ -167,6 +167,7 @@ class ReservationsController < ApplicationController
 
 
     (19..22).step(0.25).each do |hour|
+      # dinner hours
       hour_s = format '%2d', hour # piocher le 10 du 10.25
       minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
       slot = "#{hour_s}:#{minute_s}" # 10:15

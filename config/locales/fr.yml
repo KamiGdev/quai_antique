@@ -26,7 +26,7 @@ fr:
 
 
 
-# Translation in French for attributes in Show view with "t :attribute" in the html.erb file
+# Translation in French for attributes in Show view with "t :attribute" in the _reservation.html.erb file
   user: 'Client'
   phone_number: 'Numéro de téléphone'
   date: 'Date'
@@ -44,6 +44,8 @@ fr:
       reservation:
         create: 'Créer sa %{model}'
         update: 'Modifier sa %{model}'
+
+
 
 
   # French translation for global form actions within controller and method
@@ -75,10 +77,5 @@ fr:
           edit_this_reservation: 'Modifier cette réservation'
           destroy_this_reservation: 'Supprimer cette réservation'
           back_to_reservations: 'Historique des réservations'
-
-
-
-
-
 
 

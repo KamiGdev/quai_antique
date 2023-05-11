@@ -18,7 +18,7 @@ Avo.configure do |config|
   ## == Authentication ==
   # config.current_user_method = {}
   config.authenticate_with do
-    unless current_user && current_user.admin? #mdp: kamika
+    unless current_user && current_user.admin? #mdp in seeds file: rv3gJ5g^67M*N[
       flash[:alert] = "Vous devez être administrateur pour avoir accès au panel admin"
       redirect_to '/'
     end

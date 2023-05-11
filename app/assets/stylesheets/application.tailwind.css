@@ -139,21 +139,24 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     top: 0;
     left:0;
     z-index: -1;
+
 }
 
 
 
 
 /* Menu Card buttons */
-.menu-card-button a {
+.menu-card-buttons a {
     background: #F5F5F5;
     border-radius: 0.5rem;
-    padding: 6px;
-    width: auto;
+    padding: 6px 20px;
+    width: 150px;
+
+
 }
 
-.menu-card-button {
-    padding: 16px;
+.menu-card-buttons {
+    padding: 30px;
 }
 
 
@@ -165,5 +168,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 .search {
     margin-top: 22px;
+    margin-bottom: 46px;
 }
 

@@ -1,5 +1,5 @@
-<%= link_to "<— Retour à la carte", menus_path, class: "text-whitegray font-bold" %>
+<div class="py-12">
+  <%= link_to "<— Retour à la carte", menus_path, class: "text-whitegray font-bold" %>
 
-<div>
   <%= render partial: 'menu', locals: { menu: @menu, show_details: true } %>
 </div>
