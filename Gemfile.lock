@@ -115,6 +115,8 @@ GEM
     dockerfile-rails (1.2.5)
       rails
     dry-initializer (3.1.1)
+    email_validator (2.2.4)
+      activemodel
     erubi (1.12.0)
     ffi (1.15.5)
     foreman (0.87.2)
@@ -274,6 +276,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dockerfile-rails (>= 1.2)
+  email_validator
   foreman
   image_processing (~> 1.2)
   importmap-rails

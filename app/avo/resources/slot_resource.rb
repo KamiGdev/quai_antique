@@ -9,7 +9,7 @@ class SlotResource < Avo::BaseResource
   field :id, as: :id
   # Fields generated from the model
   field :date, as: :date, format: "dd/LL/yyyy"
-  field :time, as: :time
+  field :time, as: :time, timezone: "utc"
   field :reservation, as: :belongs_to
   # add fields here
 end

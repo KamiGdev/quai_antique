@@ -80,4 +80,5 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 
 gem 'devise-i18n'
+gem 'email_validator'
 gem "dockerfile-rails", ">= 1.2", :group => :development

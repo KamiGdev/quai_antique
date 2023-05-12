@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html lang='fr'>
-<head>
-  <title>QuaiAntique</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>QuaiAntique</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
   <!-- Google fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200&family=Dancing+Script:wght@400;600&family=Moul&family=Prompt:ital,wght@0,200;1,100;1,200&display=swap" rel="stylesheet">
-  <!-- Tailwind CDN -->
-  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200&family=Dancing+Script:wght@400;600&family=Moul&family=Prompt:ital,wght@0,200;1,100;1,200&display=swap" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-<body class="<%= current_page?(root_path) ? 'body_bg_homepage' : 'body_bg_gradient' %>">
+  <body class="<%= current_page?(root_path) ? 'body_bg_homepage' : 'body_bg_gradient' %>">
 
-<main class="relative flex flex-col justify-between h-[100vh]">
-  <!-- Navbar-->
-  <nav class="fixed h-24 top-0 z-50 w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16">
-    <div>
-      <%= link_to "Carte", menus_path, class: 'hidden tabnav xl:block' %>
-      <%= link_to "Réserver", new_reservation_path, class: "hidden tabnav xl:block" %>
+  <main class="relative flex flex-col justify-between h-[100vh]">
+    <!-- Navbar-->
+    <nav class="fixed h-24 top-0 z-50 w-full text-white flex justify-between bg-greige py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16">
+      <div>
+        <%= link_to "Carte", menus_path, class: 'hidden tabnav xl:block' %>
+        <%= link_to "Réserver", new_reservation_path, class: "hidden tabnav xl:block" %>
+      </div>
+
+      <div>
+        <%= link_to "Accueil", root_path, class: 'hidden tabnav xl:block' %>
+        <%= link_to "Contact", contact_path, class: 'hidden tabnav xl:block' %>
+        <%= render partial: 'layouts/menu_button' %>
+      </div>
+
+      <p class="flex flex-col absolute font-extrabold items-center pl-5 lg:pl-0 lg:left-1/2 lg:translate-x-[-50%]">
+        <%= link_to image_tag('logo.png'), root_path, class: "w-16 lg:w-20" %>
+        <span class=" text-base lg:text-xl font-['DancingScript'] font-extrabold">Quai Antique</span>
+      </p>
+
+    </nav>
+
+    <div class="relative flex flex-col items-center text-center">
+      <div class="fixed z-50 top-28">
+        <% if notice.present? %>
+          <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+        <% end %>
+
+        <% if alert.present? %>
+          <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+        <% end %>
+      </div>
+
+      <div class="pt-24">
+        <%= yield %>
+      </div>
     </div>
 
-    <div>
-      <%= link_to "Accueil", root_path, class: 'hidden tabnav xl:block' %>
-      <%= link_to "Contact", contact_path, class: 'hidden tabnav xl:block' %>
-      <%= render partial: 'layouts/menu_button' %>
-    </div>
+    <!-- Footer-->
+    <%= render partial: 'static_pages/footer' %>
 
-    <p class="flex flex-col absolute font-extrabold items-center pl-5 lg:pl-0 lg:left-1/2 lg:translate-x-[-50%]">
-      <%= link_to image_tag('logo.png'), root_path, class: "w-16 lg:w-20" %>
-      <span class=" text-base lg:text-xl font-['DancingScript'] font-extrabold">Quai Antique</span>
-    </p>
+  </main>
 
-  </nav>
 
-  <div class="relative flex flex-col items-center text-center">
-    <div class="fixed z-50 top-28">
-      <% if notice.present? %>
-        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-      <% end %>
 
-      <% if alert.present? %>
-        <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-      <% end %>
-    </div>
 
-    <div class="pt-24">
-      <%= yield %>
-    </div>
-  </div>
 
-  <!-- Footer-->
-  <%= render partial: 'static_pages/footer' %>
-
-</main>
-
-</body>
+  </body>
 </html>
 
 

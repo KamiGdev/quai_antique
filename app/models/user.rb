@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  validates :email_attributes, email: true
 
   def admin?
-    email == 'kami@k.k'  # mdp: kamika
+    email == 'kami@k.k'  # mdp: rv3gJ5g^67M*N[
   end
 end
