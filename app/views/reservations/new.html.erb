@@ -1,5 +1,5 @@
 <div class="mx-auto py-12 w-[70vw] md:w-[40vw] lg:w-[30vw]">
-  <h1 class="font-bold text-4xl">Réserver votre table</h1>
+  <h1 id="typewriterEffect" class="">Réserver votre table</h1>
 
   <%= render "form", reservation: @reservation %>
   <% if current_user %>
@@ -9,3 +9,21 @@
 </div>
 
 
+<script type="text/javascript" charset="utf-8">
+
+    // h1 Typewriter effect
+    let messageArray = ["Réserver votre table"];
+    let textPosition = 0;
+    const speed = 100;
+
+    function typewriter() {
+        document.querySelector("#typewriterEffect").
+            innerHTML = messageArray[0].substring(0, textPosition) + '<span>I</span>'; /* substring function will make the typewriter effect and span will make the blinker effect */
+
+        if(textPosition++ != messageArray[0].length)
+            setTimeout(typewriter, speed) /* Call function until the end of the sentence */
+    }
+
+    window.addEventListener("load", typewriter);
+
+</script>

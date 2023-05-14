@@ -194,3 +194,13 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
 
+/* h1 forms with Typewriter Effect */
+h1 span  {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

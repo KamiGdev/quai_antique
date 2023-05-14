@@ -1,5 +1,5 @@
 <div id='devise'>
-  <h1 class="justify-start mb-5">Connexion</h1>
+  <h1 id="typewriterEffect" class="justify-start mb-5">Connexion</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field mt-4 ">
@@ -27,3 +27,25 @@
 
   <%= render "devise/shared/links" %>
 </div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+  // h1 Typewriter effect
+  let messageArray = ["Connexion"];
+  let textPosition = 0;
+  const speed = 100;
+
+  function typewriter() {
+  document.querySelector("#typewriterEffect").
+  innerHTML = messageArray[0].substring(0, textPosition) + '<span>I</span>'; /* substring function will make the typewriter effect and span will make the blinker effect */
+
+  if(textPosition++ != messageArray[0].length)
+  setTimeout(typewriter, speed) /* Call function until the end of the sentence */
+  }
+
+  window.addEventListener("load", typewriter);
+
+
+</script>

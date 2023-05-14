@@ -1,4 +1,5 @@
-<h1 class="py-12 font-DancingScript">Notre carte</h1>
+<h1 id="typewriterEffect" class="py-12 font-DancingScript text-6xl">Notre carte</h1>
+
 <div class="menu-card-buttons grid grid-cols-2 justify-center gap-10 sm:grid-cols-3 md:grid-cols-4 md:items-center lg:flex lg:flex-row lg:gap-12 xl:gap-20 2xl:gap-24 ">
   <%= link_to 'Toute la carte', '/menus' %>
   <%= link_to 'Entrées', '/menus?category=Entrée' %>
@@ -55,3 +56,22 @@
 <% end %>
 
 
+
+<script type="text/javascript" charset="utf-8">
+
+    // h1 Typewriter effect
+    let messageArray = ["Notre carte"];
+    let textPosition = 0;
+    const speed = 100;
+
+    function typewriter() {
+        document.querySelector("#typewriterEffect").
+            innerHTML = messageArray[0].substring(0, textPosition); /* substring function will make the typewriter effect */
+
+        if(textPosition++ != messageArray[0].length)
+            setTimeout(typewriter, speed) /* Call function until the end of the sentence */
+    }
+
+    window.addEventListener("load", typewriter);
+
+</script>

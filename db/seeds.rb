@@ -7,4 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(email: "kami@k.k", password: "rv3gJ5g^67M*N[", password_confirmation: "rv3gJ5g^67M*N[")
-#Schedule.create! lunch_start s_at: Time.now, lunch_ends_at: Time.now, dinner_starts_at: Time.now, dinner_ends_at: Time.now
+Schedule.create! lunch_start s_at: Time.now, lunch_ends_at: Time.now, dinner_starts_at: Time.now, dinner_ends_at: Time.now
