@@ -1,5 +1,5 @@
 <header class="relative w-screen h-[80vh] flex flex-col justify-center items-center overflow-hidden">
-  <%= video_tag "intro_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: 'home_video brightness-75' %>
+  <%= video_tag "intro_video.mp4", autoplay: true,  loop: true, muted: true, playsinline: true, class: 'home_video brightness-75' %>
 
 <div class="pb-40 flex flex-col items-center">
   <h1 class="h1 font-DancingScript text-whitegray font-extrabold md:text-6xl lg:text-7xl ">Quai Antique</h1>
@@ -13,10 +13,11 @@
 </header>
 
 
-<%# Carousel bestoff %>
+<%# Carousel bestoff section %>
 <section class="relative flex flex-col py-20">
-  <span class="font-Prompt text-3xl text-brown font-medium">Nos clients adorent ❤️</span>
-  <p class="mt-3 mb-8 font-Moul tracking-widest text-brown font-medium">Le bestoff</p>
+  <%= link_to image_tag('cutlery_watermark_img.png'), root_path, class: 'absolute translate-y-36' %>
+  <span class="font-Prompt text-2xl md:text-3xl lg:text-4xl text-brown font-medium">Nos clients adorent ❤️</span>
+  <p class="mt-3 mb-8 font-Moul text-xl md-tex-2xl lg:text-3xl tracking-widest text-brown font-medium">Le bestoff</p>
 
 
   <%= render partial: 'menus/bestoff_carousel', locals: { bestoff_items: @bestoff_items } %>
@@ -26,73 +27,94 @@
 
 
 
-<%# Chief section, image order 1 in mobile first, order 2 in large screen %>
+<%# Chief section %>
 <section class="p-6 sm:p-10 md:p-14 lg:p-20 background-image flex flex-col lg:flex-row lg:gap-10">
 
-  <div class="px-10 pb-16 p-5 lg:pt-16 w-full text-center md:py-32 lg:w-1/2">
-    <h2 class="font-Prompt text-gray-800 ">
-      <span class="block text-2xl sm:text-3xl md:text-5xl">Le chef Michaud</span>
-      <span class="block text-blue-800 mt-2 text-2xl sm:text-2xl md:text-4xl">Une étoile pour "illuminer" vos papilles</span>
+  <%# Text block %>
+  <div class="px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2">
+    <h2>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Le chef Michaud</span>
+      <span class=" block font-Prompt text-greige mt-2 text-2xl sm:text-2xl md:text-4xl">Une étoile pour "illuminer" vos papilles</span>
     </h2>
-    <p class="text-xl md:text-2xl mx-auto mt-5 md:mt-5">
+    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
       Cette année, le jeune chef de 28 ans vient d'obtenir la prestigieuse distinction du guide Michelin avec 1 étoile pour son restaurant bistronomique Quai Antique, en Savoie à Chambéry.
       Le chef Michaud n'est pas à son premier coup d'essai; Déjà à la direction de deux établissements à Paris et Montpellier, sa ville natale, le Quai Antique avec son étoile est le signe d'une reconnaissance de son talent par ses pairs, ainsi que par les critiques culinaires.
       Une cuisine inventive, audacieuse et respectueuse des produits locaux et de saison, sublimée par des techniques culinaires modernes. Une cuisine élégante mais aussi authentique pour une expérience gustative mémorable.
     </p>
   </div>
 
-  <!--Image en order 1 en mobile first-->
+  <%# Image block %>
   <div class="w-full overflow-hidden lg:w-1/2 lg:h-full">
-    <%= link_to image_tag('chief.png', {class: 'border rounded-md lg:pt-32 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
+    <%= link_to image_tag('chief.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
 </section>
 
 
 
-<%# ecoFood and team section , image order 1 in mobile first, order 2 in large screen %>
-<section class="p-20 flex flex-col lg:flex-row lg:gap-10">
 
-  <div class="order-1 px-10 pb-16 pt-10 w-full text-center md:py-32 lg:w-1/2 lg:order-2">
-    <h2 class="font-prompt text-gray-800 text-2xl md:text-3xl lg:text-4xl ">
-      <h1 class="block">TITRE</h1>
-      <span class="block text-blue-800">TITRE 2</span>
+<%# ecoFood and team section , image order 1 in mobile first, order 2 in large screen  %>
+<section class="p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row lg:gap-10">
+
+  <%# Text block %>
+  <div class="order-1 px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2 lg:order-2">
+    <h2>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Un voyage culinaire immersif </span>
+      <span class=" block font-Prompt text-brown mt-2 text-2xl sm:text-2xl md:text-4xl">Une cuisine de patrimoine écoresponsable</span>
     </h2>
-    <p class="mt-3 text-md mx-auto text-gray-800 max-w-xs sm:text-xl md:mt-5 md:max-w-md">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, impedit.
+    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
+      La cuisine du Quai Antique est élaborée à partir de produits locaux, issus de l'agriculture biologique et respectant le cycle des saisons. Le chef, soucieux de préserver les ressources naturelles, utilise également des techniques de cuisine durables, telles que la réduction des déchets et la gestion de l'eau et de l'énergie. La brigade de cuisine est quant à elle composée de professionnels passionnés et engagés, qui travaillent avec rigueur et créativité pour offrir une expérience culinaire exceptionnelle aux clients du restaurant.
     </p>
   </div>
 
-  <!--Image en order 1 en mobile first-->
-  <div class="order-2 w-full overflow-hidden border rounded-md lg:w-1/2 lg:h-full lg:order-1">
-    <%= link_to image_tag('ecofood_team.png'), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
+  <%# Image block %>
+  <div class="order-2 w-full overflow-hidden lg:w-1/2 lg:h-full lg:order-1">
+    <%= link_to image_tag('ecofood_team.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
 </section>
 
 
-  <hr class="w-1/2 translate-x-1/2 bg-whitegray">
+
+<%# Block sentence%>
+<div class="w-full flex flex-col justify-center pt-12 mb-12 text-lg sm:text-xl md:text-2xl lg:text-3xl">
+  <span><i class="text brown font-Moul px-5 lg:px-16">Une ode enjouée à la cuisine de patrimoine Savoyarde, celle qui traverse les modes et les siècles tout en restant profondément moderne.</i>
+  </span>
+  <hr class="w-1/2 translate-x-1/2 bg-whitegray mt-8">
+</div>
 
 
-<%# Restaurant section, image order 1 in mobile first, order 2 in large screen %>
-<section class="p-20 flex flex-col lg:flex-row lg:gap-10">
 
-  <div class="px-10 pb-16 pt-10 w-full text-center md:py-32 lg:w-1/2">
-    <h2 class="font-extrabold text-gray-800 text-2xl sm:text-3xl md:text-5xl ">
-      <span class="block">TITRE</span>
-      <span class="block text-blue-800">TITRE 2</span>
+
+<%# Restaurant section %>
+<section class="mb-20 p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row lg:gap-10">
+
+  <%# Text block %>
+  <div class="px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2">
+    <h2>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Une aventure savoyarde</span>
+      <span class=" block font-Prompt text-greige mt-2 text-2xl sm:text-2xl md:text-4xl">Un écrin de beauté et de confort</span>
     </h2>
-    <p class="mt-3 text-md mx-auto text-gray-800 max-w-xs sm:text-xl md:mt-5 md:max-w-md">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, impedit.
+    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
+      Le chef Michaud entame un nouveau chapitre de son parcours singulier avec l'ouverture récente de son restaurant Quai Antique, à mi chemin entre le bistronomique et le gastronomique.
+      L'établissement a été conçu afin que vous soyez transporté dans un univers raffiné où chaque détail a été soigneusement pensé pour créer une expérience inoubliable.
+      L'ambiance qui y règne est à la fois chaleureuse et élégante, vous invitant à la détente et à la délectation.
+      Un véritable enchantement pour les yeux et vos papilles.
+
     </p>
   </div>
 
-  <!--Image en order 1 en mobile first-->
-  <div class="w-full overflow-hidden border rounded-md lg:w-1/2 lg:h-full">
-    <%= link_to image_tag('restaurant.png'), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
+  <%# Image block %>
+  <div class="w-full overflow-hidden lg:w-1/2 lg:h-full">
+    <%= link_to image_tag('restaurant.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
 </section>
+
+
+
+
+
 
 
 

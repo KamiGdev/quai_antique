@@ -1,6 +1,6 @@
 
 # Quai antique Restaurant
-This is a study project concerning the creation of a full stack web application for a French Savoyard restaurant. Users or clients can make a reservation and modify it. Registered customers have additional advantages when making a reservation with their pre-registered data and access to their booking history.
+This is a study project concerning the creation of a full stack web application for a French Savoyard restaurant. Users or clients can make a reservation and modify it. Registered customers have additional advantages when making a reservation with their pre-stored data and access to their booking history.
 
 # Technologies and tools
 
@@ -17,9 +17,9 @@ This is a study project concerning the creation of a full stack web application 
 
 https://github.com/KamiGdev/quai_antique.git
 
-### Rails installation
+### Rails, Ruby and PostgreSQL installations
 
-[Follow these instructions on Go rails](https://gorails.com/setup/windows/10)
+[Follow these instructions on GoRails](https://gorails.com/setup/windows/10)
 
 ### Before running
 ```bash
@@ -39,17 +39,23 @@ cd quai_antique
 ./bin/rails db:migrate db:seed
 ```
 
+#### Creating Database
+
+Rubymine IDE embeds an integrated database view. However, if you have not RubyMine you can install for instance TablePlus, a modern, native and friendly GUI tool for SQL relational databases.
+
+- Install [TablePlus](https://tableplus.com) e.g.
+- fill in the database connection :
+- The name of the project is on your own, in gray color on the following caption.
+- The database name must be : quai_antique_development.
+- Enter the socket, tag and port related to PostgreSQL mentionned below.
+
+![Table plus connection caption](app/assets/images/tableplus_connection.png)
+
+
 ### Running command
 In your terminal:
 ```bash 
 ./bin/dev 
 ```
-And then go to: http://localhost:3000
+And then go to: http://localhost:3000 to launch the web app.
 
-
-### To login as an admin
-Go to this sign in page:
-http://localhost:3000/users/sign_in
-
-- email: `kami@k.k`
-- password: `rv3gJ5g^67M*N[`

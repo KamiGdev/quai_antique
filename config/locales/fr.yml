@@ -3,6 +3,13 @@ fr:
   activerecord:
     models:
       user: 'Client'
+  #fr.activerecord.errors.models.reservation.attributes.email.invalid
+    errors:
+      models:
+        reservation:
+          attributes:
+            email:
+              invalid: "L'email est invalide."
 
 
     attributes:

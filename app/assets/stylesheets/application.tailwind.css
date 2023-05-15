@@ -147,8 +147,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     -webkit-appearance: none;
 }
 
-/* Old shadow dom for play button */
 
+/* Old shadow dom for play button */
 *::-webkit-media-controls-play-button {
     display: none!important;
     -webkit-appearance: none;
