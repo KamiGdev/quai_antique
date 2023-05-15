@@ -4,20 +4,9 @@ fr:
     models:
       user: 'Client'
 
-    errors:
-      models:
-        reservation:
-          attributes:
-            email:
-              invalid: "L'email est invalide."
-            slot:
-              invalid: "Veuillez sélectionner un horaire."
 
-
-            slot:
-              invalid:
     attributes:
-      # Translation of attributes in French within models
+      # French translation of attributes within models
       user:
         firstname: 'Prénom'
         lastname: 'Nom'
@@ -35,6 +24,15 @@ fr:
         allergy: 'Allergie(s)'
 
 
+
+    errors:
+      models:
+        reservation:
+          attributes:
+            email:
+              invalid: "L'email est invalide."
+            slot:
+              invalid: "Veuillez sélectionner un horaire."
 
 
 # Translation in French for attributes in Show view with "t :attribute" in the _reservation.html.erb file
@@ -55,7 +53,6 @@ fr:
       reservation:
         create: 'Créer sa %{model}'
         update: 'Modifier sa %{model}'
-
 
 
 
@@ -89,4 +86,13 @@ fr:
           destroy_this_reservation: 'Supprimer cette réservation'
           back_to_reservations: 'Historique des réservations'
 
+
+      contact:
+        index:
+          label:
+            firstname: 'Prénom'
+            lastname: 'Nom'
+            email: 'Email'
+            message: 'Message'
+            submit: 'Envoyer'
 

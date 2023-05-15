@@ -63,6 +63,20 @@ en:
           back_to_reservations: 'Booking history'
 
 
+      contact:
+        index:
+          label:
+            firstname: 'Firstname'
+            lastname: 'Lastname'
+            email: 'Email'
+            message: 'Message'
+            submit: 'Submit'
+
+
+
+
+
+
 
 
 

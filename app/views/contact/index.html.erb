@@ -1,30 +1,38 @@
+<% content_for :meta_tags do %>
+  <meta name="description" content="Page de contact">
+<% end %>
+
+<% content_for :title do %>
+ Contact
+<% end %>
+
 <div class="mx-auto py-12">
 
-  <h1 id="typewriterEffect" class="mb-5">Prendre contact</h1>
+  <h1 id="typewriterEffect" class="mb-5">Contactez-nous</h1>
 
 <%= form_with(url: contact_path) do |f| %>
   <div class="field mt-4">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+    <%= f.label t('global.forms.contact.index.label.firstname') %><br />
+    <%= f.text_field :firstname, required: true, autofocus: true, autocomplete: "firstname" %>
   </div>
 
   <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+    <%= f.label t('global.forms.contact.index.label.lastname') %><br />
+    <%= f.text_field :lastname, required: true, autocomplete: "lastname" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label t('global.forms.contact.index.label.email') %><br />
+    <%= f.email_field :email, required: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :message %><br />
-    <%= f.text_area :message, autofocus: true, autocomplete: "text", class:'w-full' %>
+    <%= f.text_area :message, required: true, autocomplete: "text", class:'w-full' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Envoyer" %>
+    <%= f.submit t('global.forms.contact.index.label.submit') %>
   </div>
 <% end %>
 

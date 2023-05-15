@@ -142,6 +142,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 }
 
+
+/* Video background on home page */
 *::-webkit-media-controls-panel {
     display: none!important;
     -webkit-appearance: none;
