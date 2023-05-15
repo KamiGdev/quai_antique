@@ -33,8 +33,6 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     slot = Slot.new date: Date.parse(params[:date]), time: params[:slot]
     @reservation.slot = slot
-    puts 'bonjour'
-    puts slot
 
     respond_to do |format|
       if @reservation.save

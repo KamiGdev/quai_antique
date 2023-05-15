@@ -56,22 +56,3 @@
 <% end %>
 
 
-
-<script type="text/javascript" charset="utf-8">
-
-    // h1 Typewriter effect
-    let messageArray = ["Notre carte"];
-    let textPosition = 0;
-    const speed = 100;
-
-    function typewriter() {
-        document.querySelector("#typewriterEffect").
-            innerHTML = messageArray[0].substring(0, textPosition); /* substring function will make the typewriter effect */
-
-        if(textPosition++ != messageArray[0].length)
-            setTimeout(typewriter, speed) /* Call function until the end of the sentence */
-    }
-
-    window.addEventListener("load", typewriter);
-
-</script>

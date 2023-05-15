@@ -33,21 +33,3 @@
 
 
 
-<script type="text/javascript" charset="utf-8">
-
-    // h1 Typewriter effect
-    let messageArray = ["Prendre contact"];
-    let textPosition = 0;
-    const speed = 100;
-
-    function typewriter() {
-        document.querySelector("#typewriterEffect").
-            innerHTML = messageArray[0].substring(0, textPosition) + '<span>I</span>'; /* substring function will make the typewriter effect and span will make the blinker effect */
-
-        if(textPosition++ != messageArray[0].length)
-            setTimeout(typewriter, speed) /* Call function untill the end of the sentence */
-    }
-
-    window.addEventListener("load", typewriter);
-
-</script>

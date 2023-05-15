@@ -3,15 +3,19 @@ fr:
   activerecord:
     models:
       user: 'Client'
-  #fr.activerecord.errors.models.reservation.attributes.email.invalid
+
     errors:
       models:
         reservation:
           attributes:
             email:
               invalid: "L'email est invalide."
+            slot:
+              invalid: "Veuillez sélectionner un horaire."
 
 
+            slot:
+              invalid:
     attributes:
       # Translation of attributes in French within models
       user:

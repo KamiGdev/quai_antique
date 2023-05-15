@@ -33,7 +33,7 @@
   </div>
 
   <%= label_tag :date, 'Sélectionner une date' %>
-  <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)', id: 'date', class: '!mb-1' %>
+  <%= date_field_tag :date, reservation.slot ? reservation.slot.date : @date, onchange: 'onChange(event)', id: 'date', class: '!mb-1', min: Date.today %>
 
 
 
