@@ -44,10 +44,11 @@ cd quai_antique
 Rubymine IDE embeds an integrated database view. However, if you have not RubyMine you can install for instance TablePlus, a modern, native and friendly GUI tool for SQL relational databases.
 
 - Install [TablePlus](https://tableplus.com) e.g.
-- fill in the database connection :
+- Fill in the database connection :
 - The name of the project is on your own, in gray color on the following caption.
-- The database name must be : quai_antique_development.
-- Enter the socket, tag and port related to PostgreSQL mentionned below.
+- The database name must be : quai_antique_development
+- Enter the host/socket, tag and port related to PostgreSQL mentionned below.
+- Then click on "Connect".
 
 ![Table plus connection caption](app/assets/images/tableplus_connection.png)
 
@@ -58,4 +59,4 @@ In your terminal:
 ./bin/dev 
 ```
 And then go to: http://localhost:3000 to launch the web app.
-
+Now, you're normally in!

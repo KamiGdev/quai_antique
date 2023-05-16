@@ -4,7 +4,7 @@
 <div class="pb-40 flex flex-col items-center">
   <h1 class="h1 font-DancingScript text-whitegray font-extrabold md:text-6xl lg:text-7xl ">Quai Antique</h1>
   <%= link_to image_tag('etoile-michelin.png', {class: 'w-[8rem]'}), root_path, class: 'mt-4' %>
-  <h2 class="font-Prompt text-whitegray mt-6 text-2xl md:text-3xl lg:text-4xl">Une expérience gastronomique unique<br>au coeur d'un havre de paix savoyard.</h2>
+  <h2 class="font-Prompt text-whitegray mt-6 text-xl px-2 sm:px-0 sm:text-2xl md:text-3xl lg:text-4xl">Une expérience gastronomique unique<br>au coeur d'un havre de paix savoyard.</h2>
   <%= link_to "Réserver", new_reservation_path, class: 'mt-8 mb-2 rounded-lg px-8 py-3 bg-gray-100 font-bold bg-whitegray text-brown hover:bg-slate hover:text-white transition duration-500 ease-in-out' %>
 
 
@@ -20,12 +20,10 @@
   <p class="mt-3 mb-8 font-Moul text-xl md-tex-2xl lg:text-3xl tracking-widest text-brown font-medium">Le bestoff</p>
   <%# Cutlery watermark image beside carousel %>
   <%= link_to image_tag('cutlery_watermark_img.png'), root_path, class: 'absolute hidden lg:block lg:w-[20rem] 2xl:translate-y-36 2xl:w-full' %>
-  k
+
   <%= render partial: 'menus/bestoff_carousel', locals: { bestoff_items: @bestoff_items } %>
 
 </section>
-
-
 
 
 <%# Chief section %>
@@ -34,10 +32,10 @@
   <%# Text block %>
   <div class="px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2">
     <h2>
-      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Le chef Arnaud Michant</span>
-      <span class=" block font-Prompt text-greige mt-2 text-2xl sm:text-2xl md:text-4xl">Une étoile pour "illuminer" vos papilles</span>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl">Le chef Arnaud Michant</span>
+      <span class=" block font-Prompt text-greige mt-2 text-lg sm:text-xl md:text-2xl">Une étoile pour "illuminer" vos papilles</span>
     </h2>
-    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
+    <p class="mx-auto mt-5 md:mt-5 text-lg sm:text-xl">
       Cette année, le jeune chef de 28 ans vient d'obtenir la prestigieuse distinction du guide Michelin avec 1 étoile pour son restaurant bistronomique Quai Antique, en Savoie à Chambéry.
       Le chef Michant n'est pas à son premier coup d'essai; Déjà à la direction de deux autres établissements à Paris et Montpellier, sa ville natale, le Quai Antique avec son étoile est le signe d'une reconnaissance de son talent par ses pairs, ainsi que par les critiques culinaires.
       Une cuisine inventive, audacieuse et respectueuse des produits locaux et de saison, sublimée par des techniques culinaires modernes. Une cuisine élégante mais aussi authentique pour une expérience gustative mémorable.
@@ -45,7 +43,7 @@
   </div>
 
   <%# Image block %>
-  <div class="w-full overflow-hidden lg:w-1/2 lg:h-full">
+  <div class="w-full overflow-hidden lg:w-1/2 lg:h-full xl:mt-20 2xl:mt-0">
     <%= link_to image_tag('chief.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
@@ -53,23 +51,22 @@
 
 
 
-
-<%# ecoFood and team section , image order 1 in mobile first, order 2 in large screen  %>
+<%# ecoFood and team section , image order 1 in mobile first, order 2 in large screen %>
 <section class="p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row lg:gap-10">
 
   <%# Text block %>
   <div class="order-1 px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2 lg:order-2">
-    <h3>
-      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Un voyage culinaire immersif </span>
-      <span class=" block font-Prompt text-whitegray mt-2 text-2xl sm:text-2xl md:text-4xl">Une cuisine de patrimoine écoresponsable</span>
-    </h3>
-    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
+    <h2>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl">Un voyage culinaire immersif</span>
+      <span class=" block font-Prompt text-whitegray mt-2 text-lg sm:text-xl md:text-2xl">Une cuisine de patrimoine écoresponsable</span>
+    </h2>
+    <p class="mx-auto mt-5 md:mt-5 text-lg sm:text-xl">
       La cuisine du Quai Antique est élaborée à partir de produits locaux, issus de l'agriculture biologique et respectant le cycle des saisons. Le chef, soucieux de préserver les ressources naturelles, utilise également des techniques de cuisine durables, telles que la réduction des déchets et la gestion de l'eau et de l'énergie. La brigade de cuisine est quant à elle composée de professionnels passionnés et engagés, qui travaillent avec rigueur et créativité pour offrir une expérience culinaire exceptionnelle aux clients du restaurant.
     </p>
   </div>
 
   <%# Image block %>
-  <div class="order-2 w-full overflow-hidden lg:w-1/2 lg:h-full lg:order-1">
+  <div class="order-2 w-full overflow-hidden lg:w-1/2 lg:h-full xl:mt-20 2xl:mt-0 lg:order-1">
     <%= link_to image_tag('ecofood_team.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
@@ -77,9 +74,10 @@
 
 
 
-<%# Block sentence%>
-<div class="w-full flex flex-col justify-center pt-12 mb-12 text-lg sm:text-xl md:text-2xl lg:text-3xl">
-  <span><i class="text brown font-Moul px-5 lg:px-16">Une ode enjouée à la cuisine de patrimoine Savoyarde, celle qui traverse les modes et les siècles tout en restant profondément moderne.</i>
+
+<%# Block 1 sentence%>
+<div class="w-full flex flex-col justify-center pt-12 mb-12">
+  <span><i class="text brown text-center px-4 sm:px-8 md:px-12 font-Moul text-md sm:text-lg md:text-xl lg:text-2xl">Une ode enjouée à la cuisine de patrimoine Savoyarde, celle qui traverse les modes et les siècles tout en restant profondément moderne.</i>
   </span>
   <hr class="w-1/2 translate-x-1/2 bg-whitegray mt-8">
 </div>
@@ -88,29 +86,31 @@
 
 
 <%# Restaurant section %>
-<section class="mb-20 p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row lg:gap-10">
+<section class="p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row lg:gap-10">
 
   <%# Text block %>
   <div class="px-10 pb-16 pt-5 w-full text-center md:py-32 lg:pt-20 lg:w-1/2">
-    <h3>
-      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Une aventure savoyarde</span>
-      <span class=" block font-Prompt text-whitegray mt-2 text-2xl sm:text-2xl md:text-4xl">Un écrin de beauté et de confort</span>
-    </h3>
-    <p class="mx-auto mt-5 md:mt-5 text-xl md:text-2xl">
+    <h2>
+      <span class="block font-DancingScript text-brown text-3xl sm:text-4xl md:text-5xl">Une aventure savoyarde</span>
+      <span class=" block font-Prompt text-whitegray mt-2 text-lg sm:text-xl md:text-2xl">Un écrin de beauté et de confort</span>
+    </h2>
+    <p class="mx-auto mt-5 md:mt-5 text-lg sm:text-xl">
       Le chef Michant entame un nouveau chapitre de son parcours singulier avec l'ouverture récente de son restaurant Quai Antique, à mi chemin entre le bistronomique et le gastronomique.
       L'établissement a été conçu afin que vous soyez transporté dans un univers raffiné où chaque détail a été soigneusement pensé pour créer une expérience inoubliable.
       L'ambiance qui y règne est à la fois chaleureuse et élégante, vous invitant à la détente et à la délectation.
       Un véritable enchantement pour les yeux et vos papilles.
-
     </p>
   </div>
 
   <%# Image block %>
-  <div class="w-full overflow-hidden lg:w-1/2 lg:h-full">
+  <div class=" w-full overflow-hidden lg:w-1/2 lg:h-full xl:mt-20 2xl:mt-0">
     <%= link_to image_tag('restaurant.png', {class: 'border rounded-md lg:pt-48 lg:border-none xl:pt-0'}), root_path, class: "w-full h-full object-cover object-center lg:w-1/2" %>
   </div>
 
 </section>
+
+
+
 
 
 
