@@ -1,3 +1,14 @@
+<%# SEO %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="Votre profil dans l'espace membre du Quai Antique">
+<% end %>
+
+<% content_for :title do %>
+  Profil
+<% end %>
+
+
+
 <h1 class="pt-12">Votre profil</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

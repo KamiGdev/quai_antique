@@ -1,4 +1,14 @@
- <div class="flex justify-between pt-12 pb-6 sm:w-[50vw] md:w-[60vw] lg:w-[70vw]">
+<%# SEO %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="Historique de vos réservations au Quai Antique">
+<% end %>
+
+<% content_for :title do %>
+  Historique
+<% end %>
+
+
+<div class="flex justify-between pt-12 pb-6 sm:w-[50vw] md:w-[60vw] lg:w-[70vw]">
     <h1 class="font-bold text-xl md:text-2xl lg:text-4xl">Historique des réservations</h1>
     <%= link_to 'Nouvelle réservation', new_reservation_path, class: "rounded-lg py-3 px-5 font-medium bg-brown text-white block hover:bg-whitegray hover:text-brown transition duration-500 ease-in-out" %>
   </div>

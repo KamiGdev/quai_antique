@@ -1,3 +1,13 @@
+<%# SEO %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="Page d'accueil du restaurant Quai Antique">
+<% end %>
+
+<% content_for :title do %>
+  Accueil
+<% end %>
+
+
 <header class="relative w-screen h-[80vh] flex flex-col justify-center items-center overflow-hidden">
   <%= video_tag "intro_video.mp4", autoplay: true,  loop: true, muted: true, playsinline: true, class: 'home_video brightness-75' %>
 
