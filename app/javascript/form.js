@@ -1,7 +1,7 @@
 // Launch functions at each calling events
 document.addEventListener('turbo:load', () => {
 
-    // Turbo script for the date refresh
+    // Turbo script for the date refresh on reservation's page
     function onChange(event) {
         const people_el = document.getElementById('people')
         const date_el = document.getElementById('date')
@@ -16,7 +16,7 @@ document.addEventListener('turbo:load', () => {
     }
 
 
-    // Alert message script when the phone number is not typed correctly
+    // Alert message script when the phone number is not typed correctly on reservation's page
     const phone_number = document.getElementById('reservation_phone_number')
 
     let el

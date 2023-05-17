@@ -111,20 +111,11 @@ class ReservationsController < ApplicationController
        # ["10:30", "10:15"]
 
 
-    # #taken_slots = []
-    #
-    # @slots.each do |s|
-    #   for i in 1..s.reservation.people_number # people number in the reservation, e.g. 5 people number
-    #     taken_slots << s.time.strftime("%H:%M")  # e.g. 11:00, 11:00 ...Total : 5* 11:00
-    #   end
-    # end
-
-
     @lunch_slots = []
     @dinner_slots = []
 
+       # Define a capacity max of 30 pers. per session, lunch or dinner.
     people_number =  params[:people_number].to_i || 0
-
 
 
     sum = 0
@@ -137,7 +128,6 @@ class ReservationsController < ApplicationController
     if sum + people_number > 30
       return
     end
-
 
 
     (11..14).step(0.25).each do |hour|

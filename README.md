@@ -27,7 +27,10 @@ rails -v
 # should be Rails 7.0.4.2
 
 ruby -v
-#ruby 3.2.1
+# ruby 3.2.1
+
+psql --version
+# For info psql (PostgreSQL) 14.7 (Homebrew)
 ```
 
 #### Run migrations and seeds
@@ -60,3 +63,5 @@ In your terminal:
 ```
 And then go to: http://localhost:3000 to launch the web app.
 Now, you're normally in!
+
+

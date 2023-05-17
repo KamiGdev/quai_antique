@@ -24,7 +24,6 @@ fr:
         allergy: 'Allergie(s)'
 
 
-
     errors:
       models:
         reservation:
