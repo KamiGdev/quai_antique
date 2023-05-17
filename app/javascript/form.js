@@ -20,7 +20,7 @@ document.addEventListener('turbo:load', () => {
     const phone_number = document.getElementById('reservation_phone_number')
 
     let el
-    phone_number.addEventListener('input', (e) => {
+    phone_number.oninput =  (e) => {
         const value = e.target.value
         if (!value.match(/^\+?[0-9]{10,50}$/)) {
             if (el) return
@@ -40,7 +40,7 @@ document.addEventListener('turbo:load', () => {
             el.remove()
             el = null
         }
-    })
+    }
 })
 
 
