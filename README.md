@@ -11,17 +11,17 @@ This is a study project concerning the creation of a full stack web application 
 - Database created with PostgreSQL
 
 
-## Local development
+# Local development
 
-### Clone the project
+## Clone the project
 
 https://github.com/KamiGdev/quai_antique.git
 
-### Rails, Ruby and PostgreSQL installations
+## Rails, Ruby and PostgreSQL installations
 
 [Follow these instructions on GoRails](https://gorails.com/setup/windows/10)
 
-### Before running
+## Before running
 ```bash
 rails -v 
 # should be Rails 7.0.4.2
@@ -33,7 +33,7 @@ psql --version
 # For info psql (PostgreSQL) 14.7 (Homebrew)
 ```
 
-#### Run migrations and seeds
+### Run migrations and seeds
 In your terminal:
 ```bash
 git clone https://github.com/KamiGdev/quai_antique.git
@@ -42,7 +42,7 @@ cd quai_antique
 ./bin/rails db:migrate db:seed
 ```
 
-#### Creating Database
+### Creating Database
 
 Rubymine IDE embeds an integrated database view. However, if you have not RubyMine you can install for instance TablePlus, a modern, native and friendly GUI tool for SQL relational databases.
 
@@ -56,12 +56,24 @@ Rubymine IDE embeds an integrated database view. However, if you have not RubyMi
 ![Table plus connection caption](app/assets/images/tableplus_connection.png)
 
 
-### Running command
+## Running command
 In your terminal:
 ```bash 
 ./bin/dev 
 ```
 And then go to: http://localhost:3000 to launch the web app.
 Now, you're normally in!
+
+
+## To login as an admin, just in local
+Go to this sign in page:
+http://localhost:3000/users/sign_in
+
+<u>Authentication :</u>   
+email: kami@k.k   
+password: rv3gJ5g^67M*N[    
+
+You can change your email & password on rails seeds.rb file (db folder).
+
 
 
