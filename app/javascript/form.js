@@ -1,21 +1,19 @@
+function onChange(event) {
+    const people_el = document.getElementById('people')
+    const date_el = document.getElementById('date')
+    // On récupère le champs
+    const people = people_el.value
+    const date = date_el.value
+    // On envoie la valeur au serveur
+    fetch('/reservations/refresh_date?date=' + date + '&people_number=' + people)
+        .then(res => res.text())
+        .then(html => Turbo.renderStreamMessage(html))
+    // On remplace avec la nouvelle valeur
+}
+
 // Launch functions at each calling events
 document.addEventListener('turbo:load', () => {
-
     // Turbo script for the date refresh on reservation's page
-    function onChange(event) {
-        const people_el = document.getElementById('people')
-        const date_el = document.getElementById('date')
-        // On récupère le champs
-        const people = people_el.value
-        const date = date_el.value
-        // On envoie la valeur au serveur
-        fetch('/reservations/refresh_date?date=' + date + '&people_number=' + people)
-            .then(res => res.text())
-            .then(html => Turbo.renderStreamMessage(html))
-        // On remplace avec la nouvelle valeur
-    }
-
-
     // Alert message script when the phone number is not typed correctly on reservation's page
     const phone_number = document.getElementById('reservation_phone_number')
 
