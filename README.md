@@ -69,6 +69,8 @@ Now, you're normally in!
 Go to this sign in page:
 http://localhost:3000/users/sign_in
 
+Note that images coming from backoffice will be not visible on your local environment as i upload them directly from backoffice and not come from seeds.rb file.
+
 <u>Authentication :</u>   
 email: kami@k.k   
 password: rv3gJ5g^67M*N[    
