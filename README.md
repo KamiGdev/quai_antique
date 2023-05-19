@@ -1,6 +1,6 @@
 
 # Quai antique Restaurant
-This is a study project concerning the creation of a full stack web application for a French Savoyard restaurant. Users or clients can make a reservation and modify it. Registered customers have additional advantages when making a reservation with their pre-stored data and access to their booking history.
+This is a study project concerning the creation of a full stack web application for a French Savoyard restaurant. Visitors and clients can make a reservation and modify it. Registered customers have additional advantages when making a reservation with their pre-stored data and access to their booking history.
 
 # Technologies and tools
 
