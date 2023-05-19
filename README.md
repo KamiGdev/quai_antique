@@ -11,7 +11,7 @@ This is a study project concerning the creation of a full stack web application 
 - Database created with PostgreSQL
 
 
-# Local development
+# Set up a local development environment
 
 ## Clone the project
 
