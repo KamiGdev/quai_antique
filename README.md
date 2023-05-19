@@ -69,8 +69,8 @@ Now, you're normally in!
 Go to this sign in page:
 http://localhost:3000/users/sign_in
 
-Note that images coming from the backoffice (menu images) will be not visible on your local environment as i uploaded them directly from my computer to backoffice.  
-These kind of images come not from seeds.rb file.
+Note that menu images are located in my storage folder and are not coming from seeds.rb file.
+Thus, these kind of images will be not visible on your local environment as i uploaded them directly from my computer to the backoffice.
 
 <u>Authentication :</u>   
 email: kami@k.k   
