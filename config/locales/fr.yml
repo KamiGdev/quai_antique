@@ -61,10 +61,14 @@ fr:
       sessions:
         new:
           submit: 'Se connecter'
+          label:
+            password: 'Mot de passe'
 
       registrations:
         new:
           submit: "S'inscrire"
+          label:
+            password: 'Mot de passe'
 
         edit:
             submit: "Modifier son profil"

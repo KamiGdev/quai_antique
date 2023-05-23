@@ -31,7 +31,7 @@
     </div>
 
     <div class="field">
-      <%= f.label 'People number by default' %><br/>
+      <%= f.label 'Nombre de couverts (par défaut)' %><br/>
       <%= f.text_field :people_number, required: true, autocomplete: "number", type: 'number' %>
     </div>
 
@@ -41,7 +41,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label t('global.forms.registrations.new.label.password') %>
       <%= f.password_field :password, autocomplete: "new-password", required: true, minlength: 8, class:'!mb-0' %>
       <p class="mb-2 break-word text-left text-brown">Le mot de passe doit avoir une longueur de 8 à 12 caractères</p>
     </div>

@@ -38,10 +38,15 @@ en:
       sessions:
         new:
           submit: 'Log in'
+          label:
+            password: 'Password'
+
 
       registrations:
         new:
           submit: 'Sign up'
+          label:
+            password: 'Password'
 
         edit:
           submit: "Update"

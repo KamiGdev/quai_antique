@@ -70,7 +70,7 @@ class ReservationsController < ApplicationController
     @reservation.destroy
 
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+      format.html { redirect_to reservations_url, notice: "La réservation a été supprimée." }
       format.json { head :no_content }
     end
   end
