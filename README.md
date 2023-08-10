@@ -25,7 +25,7 @@ https://github.com/KamiGdev/quai_antique.git
 ```bash
 rails -v 
 # should be Rails 7.0.4.2
-a
+
 ruby -v
 # ruby 3.2.1
 

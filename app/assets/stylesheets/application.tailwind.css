@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
-
-*/
 
 /* h & p customs */
 @layer base {
@@ -29,6 +20,7 @@
     h4 {
         @apply sm:text-sm md:text-base lg:text-xl;
     }
+
     p {
         @apply sm:text-sm md:text-base;
     }

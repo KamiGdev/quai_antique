@@ -108,7 +108,7 @@ class ReservationsController < ApplicationController
 
 
     taken_slots = @slots.pluck(:time).map { |time| time.strftime("%H:%M") } # stringify
-       # ["10:30", "10:15"]
+       # ["11:30", "11:15"]
 
 
     @lunch_slots = []
@@ -132,9 +132,9 @@ class ReservationsController < ApplicationController
 
     (11..14).step(0.25).each do |hour|
       # lunch hours
-      hour_s = format '%2d', hour # piocher le 10 du 10.25
-      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
-      slot = "#{hour_s}:#{minute_s}" # 10:15
+      hour_s = format '%2d', hour # pick 11 from 11.25
+      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transform 0.25 in 15min (the quarter ) + transform the mn in string
+      slot = "#{hour_s}:#{minute_s}" # 11:15
       @lunch_slots << slot unless taken_slots.include? slot
 
     end
@@ -156,9 +156,9 @@ class ReservationsController < ApplicationController
 
     (19..22).step(0.25).each do |hour|
       # dinner hours
-      hour_s = format '%2d', hour # piocher le 10 du 10.25
-      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transformer le 0.25 en 15min (le quart)
-      slot = "#{hour_s}:#{minute_s}" # 10:15
+      hour_s = format '%2d', hour # pick 11 from 11.25
+      minute_s = (hour.modulo(1) * 60).to_i.to_s.ljust(2, '0') # transform 0.25 in 15min (the quarter ) + transform the mn in string
+      slot = "#{hour_s}:#{minute_s}" # 11:15
       @dinner_slots << slot unless taken_slots.include? slot
 
     end

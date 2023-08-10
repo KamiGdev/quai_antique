@@ -2,14 +2,14 @@
 function onChange(event) {
     const people_el = document.getElementById('people')
     const date_el = document.getElementById('date')
-    // On récupère le champs
+    // We retrieve the field.
     const people = people_el.value
     const date = date_el.value
-    // On envoie la valeur au serveur
+    // We send the value to the server.
     fetch('/reservations/refresh_date?date=' + date + '&people_number=' + people)
         .then(res => res.text())
         .then(html => Turbo.renderStreamMessage(html))
-    // On remplace avec la nouvelle valeur
+    // We replace it with the new value.
 }
 
 // Launch functions at each calling events
