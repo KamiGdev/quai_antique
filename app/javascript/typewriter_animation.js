@@ -16,4 +16,3 @@ window.addEventListener("turbo:load", () => {
     typewriter()
 })
 
-

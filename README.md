@@ -7,7 +7,7 @@ This is a study project concerning the creation of a full stack web application 
 - Rails (Ruby on Rails) full stack framework
 - Tailwind css framework
 - Rubymine IDE
-- Use of [Turbo frames](https://turbo.hotwired.dev/handbook/introduction), from [Hotwire](https://hotwired.dev), that makes "hide" AJAX.
+- Use of [Turbo frames](https://turbo.hotwired.dev/handbook/introduction) and [Turbo load](https://turbo.hotwired.dev/reference/events) from [Hotwire](https://hotwired.dev), that makes "hide" AJAX.
 - Database created with PostgreSQL
 
 
